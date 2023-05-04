@@ -1,9 +1,6 @@
 # secrets
 .env
 
-# data
-*.db*
-
 # dependencies
 /node_modules
 /.pnp
