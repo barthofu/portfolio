@@ -13,8 +13,11 @@ dependencies:
   '@fontsource/open-sans':
     specifier: ^4.5.13
     version: 4.5.14
+  '@fontsource/peace-sans':
+    specifier: ^4.5.0
+    version: 4.5.0
   '@fontsource/raleway':
-    specifier: ^4.5.11
+    specifier: ^4.5.12
     version: 4.5.12
   framer-motion:
     specifier: ^7.6.1
@@ -2788,6 +2791,10 @@ packages:
 
   /@fontsource/open-sans@4.5.14:
     resolution: {integrity: sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==}
+    dev: false
+
+  /@fontsource/peace-sans@4.5.0:
+    resolution: {integrity: sha512-v+tufTipaS7z39qNPyS3ghAoDUjghb7lB6kO+b6NfHawH9vn8ADoW9phcbeYnxBTWk5Gf6bfDIjomIx72YtgBw==}
     dev: false
 
   /@fontsource/raleway@4.5.12:

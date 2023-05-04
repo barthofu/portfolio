@@ -10,6 +10,15 @@ const preview: Preview = {
 				date: /Date$/,
 			},
 		},
+		backgrounds: {
+			default: 'dark',
+			values: [
+				{
+					name: 'dark',
+					value: theme.colors.background.primary,
+				}
+			]
+		},
 		chakra: {
 			theme
 		}

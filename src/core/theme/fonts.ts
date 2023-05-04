@@ -1,5 +1,5 @@
 const fonts = {
-    heading: `'Open Sans', sans-serif`,
+    heading: `'Peace Sans', sans-serif`,
     body: `'Raleway', sans-serif`,
 }
 
