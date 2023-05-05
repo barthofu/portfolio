@@ -12,9 +12,10 @@ export const Section: React.FC<SectionProps> = (props) => {
         <Box as='section'
             display='flex'
             flexDirection='column'
-            gap='1rem'
             alignItems={{ base: 'center', md: 'flex-start' }}
+            gap='1rem'
             width='100%'
+            pb='6rem'
         >
             <Heading as='h2' 
                 size='2xl' mb='20px'

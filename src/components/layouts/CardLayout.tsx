@@ -9,7 +9,7 @@ export const CardLayout: React.FC<CardLayoutProps> = ({ children, ...rest }) => 
 
 	return (<>
         <Box
-            p='4% 2.5%'
+            p='2rem'
             bg='background.secondary'
             border='1px solid' borderColor='background.tertiary'
             borderRadius='10px'

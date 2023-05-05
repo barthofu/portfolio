@@ -29,7 +29,8 @@
             "@lib/*": ["src/core/utils/lib/*"],
 			
 			"@styles/*": ["public/styles/*"],
-			"@assets/*": ["public/assets/*"]
+			"@assets/*": ["public/assets/*"],
+			"@content": ["content"]
 		}
 	},
 

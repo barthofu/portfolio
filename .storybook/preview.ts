@@ -1,3 +1,5 @@
+import './style.css'
+
 import type { Preview } from '@storybook/react'
 import { theme } from '../src/core/theme'
 
@@ -11,11 +13,11 @@ const preview: Preview = {
 			},
 		},
 		backgrounds: {
-			default: 'dark',
+			default: 'main',
 			values: [
 				{
-					name: 'dark',
-					value: theme.colors.background.primary,
+					name: 'main',
+					value: 'rgba(0, 0, 0, 0)',
 				}
 			]
 		},

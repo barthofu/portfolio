@@ -1,2 +1,2 @@
-export * from './crud'
 export * from './string'
+export * from './localization'

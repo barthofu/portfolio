@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BasicCard } from './BasicCard'
 
 export default {
-    title: 'Card/BasicCard',
+    title: 'Shared/Card/BasicCard',
     component: BasicCard,
 } as Meta<typeof BasicCard>
 
