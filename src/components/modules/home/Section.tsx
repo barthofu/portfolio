@@ -1,12 +1,16 @@
 import { Box, Heading } from '@chakra-ui/react'
+import { extractLocalizedString } from '@core/utils/functions'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 type SectionProps = {
-    title: string
+    title: LocalizedString
     children: React.ReactNode
 }
 
 export const Section: React.FC<SectionProps> = (props) => {
+
+    const { locale } = useRouter()
 
 	return (<>
         <Box as='section'
@@ -20,7 +24,7 @@ export const Section: React.FC<SectionProps> = (props) => {
             <Heading as='h2' 
                 size='2xl' mb='20px'
             >
-                { props.title }
+                { extractLocalizedString(props.title, locale) }
             </Heading>
 
             { props.children }

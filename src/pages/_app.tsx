@@ -1,5 +1,6 @@
 import '@fontsource/raleway/400.css'
 import '@fontsource/peace-sans/400.css'
+import '@styles/glow.scss'
 
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'

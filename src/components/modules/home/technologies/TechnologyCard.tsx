@@ -10,8 +10,9 @@ type TechnologyCardProps = {
 
 export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
 
-    const router = useRouter()
-    const name = extractLocalizedString(technology.name, router.locale)
+    const { locale } = useRouter()
+
+    const name = extractLocalizedString(technology.name, locale)
 
 	return (<>
         <CardLayout

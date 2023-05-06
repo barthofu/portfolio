@@ -22,21 +22,9 @@ type Project = {
     description: LocalizedString
     status: ProjectStatus
     year?: string
-    tags: typeof import('@content').tags
+    tags: import('@content').Tag[]
     technologies?: Technology['id'][]
     imageUrl?: string
     githubUrl?: string
     demoUrl?: string
-}
-
-type ProjectStatus = {
-    id: string,
-    label: LocalizedString
-}
-
-enum ProjectStatus {
-    InProgress = 'in-progress',
-    Completed = 'completed',
-    OnHold = 'on-hold',
-    Cancelled = 'cancelled',
 }

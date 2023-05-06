@@ -1,25 +1,27 @@
-import React from 'react'
+import { SimpleGrid, Text } from '@chakra-ui/react'
 import { Section } from '@components/modules'
 import { BasicCard } from '@components/shared'
-import { Flex, SimpleGrid, Text } from '@chakra-ui/react'
 import { extractLocalizedString, extractLocalizedStrings } from '@core/utils/functions'
 import { useRouter } from 'next/router'
+import React from 'react'
 
-type AboutSectionProps = {
-    about: About,
-    skills: Skill[]
-}
+import { about, skills } from '@content'
+
+type AboutSectionProps = {}
 
 export const AboutSection: React.FC<AboutSectionProps> = (props) => {
 
-    const router = useRouter()
+    const { locale } = useRouter()
 
 	return (<>
 
-        <Section title='About'>
+        <Section title={{
+            en: 'About',
+            fr: 'À propos',
+        }}>
 
             <BasicCard>
-                {extractLocalizedStrings(props.about, router.locale).map((paragraph, index) =>
+                {extractLocalizedStrings(about, locale).map((paragraph, index) =>
                     <Text key={index} mb='1em'>{paragraph}</Text>
                 )}
             </BasicCard>
@@ -28,15 +30,15 @@ export const AboutSection: React.FC<AboutSectionProps> = (props) => {
 
             <SimpleGrid templateColumns='repeat(3, 1fr)' w='100%'>
 
-                {props.skills.map((skill, index) => 
+                {skills.map((skill, index) => 
 
                     <BasicCard
                         key={index}
-                        title={extractLocalizedString(skill.name, router.locale)}
-                        subtitle={extractLocalizedString(skill.level, router.locale)}
+                        title={extractLocalizedString(skill.name, locale)}
+                        subtitle={extractLocalizedString(skill.level, locale)}
                         fontSize='.9rem'
                     >
-                        {extractLocalizedString(skill.description, router.locale)}
+                        {extractLocalizedString(skill.description, locale)}
                     </BasicCard>    
                 )}
 
