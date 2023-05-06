@@ -1,20 +1,23 @@
-import { Badge, Button, HStack, Text } from '@chakra-ui/react'
+import { Button, HStack, Text } from '@chakra-ui/react'
+import { Tag, tags } from '@content'
 import { extractLocalizedString } from '@core/utils/functions'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import { types } from '@content'
-
-type TechnologyFilterProps = {
-    selectedType: string | null
-    setSelectedType: React.Dispatch<React.SetStateAction<string | null>>
+type FilterProps<T> = {
+    data: {
+        id: T
+        label: LocalizedString
+    }[]
+    selectedType: T | null
+    setSelectedType: React.Dispatch<React.SetStateAction<T | null>>
 }
 
-export const TechnologyFilter: React.FC<TechnologyFilterProps> = (props) => {
+export const Filter = <T, >(props: FilterProps<T>) => {
 
     const { locale } = useRouter()
 
-    const onSelectHandler = (type: string) => {
+    const onSelectHandler = (type: T) => {
         if (props.selectedType === type) props.setSelectedType(null)
         else props.setSelectedType(type)
     } 
@@ -24,7 +27,7 @@ export const TechnologyFilter: React.FC<TechnologyFilterProps> = (props) => {
             
             <Text>Filter by</Text>
 
-            {types.map((type, i) =>
+            {props.data.map((type, i) =>
                 <Button
                     key={i}
                     variant='outline'

@@ -1,21 +1,35 @@
-import { VStack } from '@chakra-ui/react'
+import { Box, VStack } from '@chakra-ui/react'
 import { Project, Section } from '@components/modules'
 import React from 'react'
 
-import { projects } from '@content'
+import { Filter } from '@components/shared'
+import { Tag, projects, tags } from '@content'
 
 type ProjectsSectionProps = {}
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
+
+    const [selectedType, setSelectedType] = React.useState<Tag | null>(null)
 
 	return (<>
         <Section title={{
             en: 'Projects',
             fr: 'Projets',
         }}>
+
+            
+            <Box pb='2rem'>
+                <Filter<Tag>
+                    data={tags}
+                    selectedType={selectedType}
+                    setSelectedType={setSelectedType}
+                />
+            </Box>
             
             <VStack w='100%' spacing='5rem'>
-                {projects.map((project, index) =>
+                {projects
+                    .filter(project => selectedType === null || project.tags.includes(selectedType))
+                    .map((project, index) =>
                 
                     <Project
                         key={index}

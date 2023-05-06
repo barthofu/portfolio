@@ -1,20 +1,25 @@
 import { Box, Grid } from '@chakra-ui/react'
-import { Section, TechnologyCard, TechnologyFilter } from '@components/modules'
+import { Section, TechnologyCard } from '@components/modules'
 import React from 'react'
 
-import { technologies } from '@content'
+import { Filter } from '@components/shared'
+import { Type, technologies, types } from '@content'
 
 type TechnologiesSectionProps = {}
 
 export const TechnologiesSection: React.FC<TechnologiesSectionProps> = (props) => {
 
-    const [selectedType, setSelectedType] = React.useState<string | null>(null)
+    const [selectedType, setSelectedType] = React.useState<Type | null>(null)
 
 	return (<>
         <Section title='Technologies'>
 
             <Box pb='2rem'>
-                <TechnologyFilter 
+                <Filter<Type>
+                    data={types.map(type => ({
+                        id: type.id,
+                        label: type.label,
+                    }))}
                     selectedType={selectedType}
                     setSelectedType={setSelectedType}
                 />
