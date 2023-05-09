@@ -1,5 +1,4 @@
 export * from './HeroBanner'
-export * from './Section'
 
 export * from './about/AboutSection'
 

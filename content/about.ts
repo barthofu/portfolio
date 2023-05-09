@@ -24,5 +24,27 @@ export const skills: Skill[] = [
             en: `I have a solid grasp of various front-end technologies, such as React, TypeScript, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
             fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
         }
+    },
+    {
+        name: 'Front-end',
+        level: {
+            en: `+2 years of experience`,
+            fr: `+2 ans d\'expérience`,
+        },
+        description: {
+            en: `I have a solid grasp of various front-end technologies, such as React, TypeScript, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
+            fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
+        }
+    },
+    {
+        name: 'Front-end',
+        level: {
+            en: `+2 years of experience`,
+            fr: `+2 ans d\'expérience`,
+        },
+        description: {
+            en: `I have a solid grasp of various front-end technologies, such as React, TypeScript, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
+            fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
+        }
     }
 ]

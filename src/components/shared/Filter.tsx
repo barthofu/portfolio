@@ -25,7 +25,10 @@ export const Filter = <T, >(props: FilterProps<T>) => {
 	return (<>
         <HStack>
             
-            <Text>Filter by</Text>
+            <Text>{extractLocalizedString({
+                fr: 'Filtrer par type',
+                en: 'Filter by type'
+            }, locale)}</Text>
 
             {props.data.map((type, i) =>
                 <Button

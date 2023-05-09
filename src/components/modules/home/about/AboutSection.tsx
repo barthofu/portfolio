@@ -1,6 +1,5 @@
 import { SimpleGrid, Text } from '@chakra-ui/react'
-import { Section } from '@components/modules'
-import { BasicCard } from '@components/shared'
+import { BasicCard, Section } from '@components/shared'
 import { extractLocalizedString, extractLocalizedStrings } from '@core/utils/functions'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -28,7 +27,7 @@ export const AboutSection: React.FC<AboutSectionProps> = (props) => {
 
             {/* Skills */}
 
-            <SimpleGrid templateColumns='repeat(3, 1fr)' w='100%'>
+            <SimpleGrid templateColumns='repeat(3, 1fr)' gap='1rem' w='100%'>
 
                 {skills.map((skill, index) => 
 

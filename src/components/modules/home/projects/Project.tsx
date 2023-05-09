@@ -7,6 +7,7 @@ import { FiGithub, FiPlay } from 'react-icons/fi'
 import { BsPlay } from 'react-icons/bs'
 
 import { technologies, tags } from '@content'
+import { PopBox } from '@components/shared'
 
 type ProjectProps = {
     project: Project
@@ -22,7 +23,12 @@ export const Project: React.FC<ProjectProps> = ({ project, inverted }) => {
 
 	return (<>
 
-        <HStack w='100%' position='relative' justifyContent={direction}>
+        <PopBox 
+            position='relative' 
+            display='flex' 
+            justifyContent={direction}
+            w='100%' 
+        >
 
             <VStack 
                 alignItems={direction}
@@ -85,7 +91,7 @@ export const Project: React.FC<ProjectProps> = ({ project, inverted }) => {
             />
 
 
-        </HStack>
+        </PopBox>
 
 
 

@@ -1,8 +1,8 @@
 import { Box, VStack } from '@chakra-ui/react'
-import { Project, Section } from '@components/modules'
+import { Project } from '@components/modules'
+import { Filter, Section } from '@components/shared'
 import React from 'react'
 
-import { Filter } from '@components/shared'
 import { Tag, projects, tags } from '@content'
 
 type ProjectsSectionProps = {}

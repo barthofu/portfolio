@@ -1,8 +1,8 @@
 import { Box, Grid } from '@chakra-ui/react'
-import { Section, TechnologyCard } from '@components/modules'
+import { TechnologyCard } from '@components/modules'
+import { Filter, Section } from '@components/shared'
 import React from 'react'
 
-import { Filter } from '@components/shared'
 import { Type, technologies, types } from '@content'
 
 type TechnologiesSectionProps = {}

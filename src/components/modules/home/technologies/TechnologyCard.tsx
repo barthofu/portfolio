@@ -1,5 +1,6 @@
 import { Image, Text } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
+import { PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -15,28 +16,36 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
     const name = extractLocalizedString(technology.name, locale)
 
 	return (<>
-        <CardLayout
-            width='auto'
-            p='1rem'
+
+        <PopBox
+            w='100%'
+            h='100%'
         >
-            
-            <Text
-                fontSize='small'
-                fontWeight='500'
-                color='text.secondary'
-                pb='.5em'
+
+            <CardLayout
+                width='auto'
+                h='100%'
+                p='1rem'
             >
-                {name}
-            </Text>
+                
+                <Text
+                    fontSize='small'
+                    fontWeight='500'
+                    color='text.secondary'
+                    pb='.5em'
+                >
+                    {name}
+                </Text>
+                
+                <Image 
+                    src={technology.imageUrl} 
+                    alt={name} 
+                    width='4rem'
+                    alignSelf='center' 
+                    pb='1rem'
+                />
             
-            <Image 
-                src={technology.imageUrl} 
-                alt={name} 
-                width='4rem'
-                alignSelf='center' 
-                pb='1rem'
-            />
-        
-        </CardLayout>
+            </CardLayout>
+        </PopBox>
     </>)
 }

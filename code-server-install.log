@@ -1,0 +1,6 @@
+[2023-05-08T16:49:16.682Z] info  code-server 4.12.0 1da7cda39e54faa087cf129f0f85d4d4e63e81b8
+[2023-05-08T16:49:16.682Z] info  Using user-data-dir ~/.local/share/code-server
+[2023-05-08T16:49:16.705Z] info  Using config file ~/.config/code-server/config.yaml
+[2023-05-08T16:49:16.705Z] info  HTTP server listening on http://127.0.0.1:13337/
+[2023-05-08T16:49:16.705Z] info    - Authentication is disabled
+[2023-05-08T16:49:16.705Z] info    - Not serving HTTPS
