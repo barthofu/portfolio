@@ -10,7 +10,7 @@ import { technologies, tags } from '@content'
 import { PopBox } from '@components/shared'
 
 type ProjectProps = {
-    project: Project
+    project: Content.Project
     inverted?: boolean
 }
 

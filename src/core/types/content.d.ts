@@ -1,30 +1,39 @@
-type About = LocalizedString<true>
+namespace Content {
 
-type Skill = {
-    name: LocalizedString
-    level: LocalizedString
-    description: LocalizedString
-}
+    type About = LocalizedString<true>
 
-type Technology = {
-    /**
-     * slugified version of the name
-     */
-    id: string 
-    name: LocalizedString
-    type: TechnologyType
-    imageUrl: string
-    description?: LocalizedString,
-}
+    type Skill = {
+        name: LocalizedString
+        level: LocalizedString
+        description: LocalizedString
+    }
 
-type Project = {
-    name: LocalizedString
-    description: LocalizedString
-    status: ProjectStatus
-    year?: string
-    tags: import('@content').Tag[]
-    technologies?: Technology['id'][]
-    imageUrl?: string
-    githubUrl?: string
-    demoUrl?: string
+    type Technology = {
+        /**
+         * slugified version of the name
+         */
+        id: string 
+        name: LocalizedString
+        type: TechnologyType
+        imageUrl: string
+        description?: LocalizedString,
+    }
+
+    type Project = {
+        name: LocalizedString
+        description: LocalizedString
+        status: ProjectStatus
+        year?: string
+        tags: import('@content').Tag[]
+        technologies?: Technology['id'][]
+        imageUrl?: string
+        githubUrl?: string
+        demoUrl?: string
+    }
+
+    type HistoryElement = {
+        title: LocalizedString
+        year: string
+        description: LocalizedString
+    }
 }

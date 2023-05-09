@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 type TechnologyCardProps = {
-    technology: Technology
+    technology: Content.Technology
 }
 
 export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {

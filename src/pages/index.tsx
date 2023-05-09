@@ -1,8 +1,6 @@
-import type { InferGetStaticPropsType, NextPage } from 'next'
-import { Flex } from '@chakra-ui/react'
 import { DefaultLayout } from '@components/layouts'
-import { AboutSection, ProjectsSection, Section, TechnologiesSection } from '@components/modules'
-import { BasicCard } from '@components/shared'
+import { AboutSection, HistorySection, ProjectsSection, TechnologiesSection } from '@components/modules'
+import type { InferGetStaticPropsType, NextPage } from 'next'
 
 import * as content from '@content'
 
@@ -33,6 +31,8 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 			<TechnologiesSection />
 
 			<ProjectsSection />
+
+			<HistorySection />
 
 		</DefaultLayout>		
 	

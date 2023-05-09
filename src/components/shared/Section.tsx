@@ -19,7 +19,7 @@ export const Section: React.FC<SectionProps> = (props) => {
             alignItems={{ base: 'center', md: 'flex-start' }}
             gap='1rem'
             width='100%'
-            pb='6rem'
+            pb='8rem'
         >
             <Heading as='h2' 
                 size='2xl' mb='20px'
