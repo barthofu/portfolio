@@ -1,4 +1,4 @@
-import { Box, Circle, VStack } from '@chakra-ui/react'
+import { Box, Flex, VStack } from '@chakra-ui/react'
 import { Section } from '@components/shared'
 import { history } from '@content'
 import React from 'react'
@@ -11,8 +11,8 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
 	return (<>
 
         <Section title={{
-            en: 'History',
-            fr: 'Historique'
+            en: 'Experience',
+            fr: 'Expérience'
         }}>
 
             <Box
@@ -20,28 +20,26 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
                 display='flex'
                 w='100%'
             >
-            
-                {/* Starting point */}
-                <Box 
-                    w='10px' h='10px'
-                    bg='text.primary'
-                    borderRadius='50%'
-                    position='absolute' top='0' left='50%' transform='translate(-50%, -50%)'
-                />
+        
+                <Box my='10em'></Box>
 
                 {/* Line */}
                 <Box
                     w='1px' h='100%'
-                    bg='text.primary'
+                    bg='linear-gradient(transparent 0,rgba(255, 255, 255, 0.5) 15%,rgba(255, 255, 255, 0.5) 85%,transparent 100%)'
                     position='absolute' top='0' left='50%' transform='translate(-50%, 0)'
                 />
 
                 {/* Elements */}
-                <VStack w='100%'>
+                <Flex flexDir='column' w='100%' mt='5em'>
                     {history.map((historyElement, i) => <>
-                        <HistoryElement historyElement={historyElement} inverted={i % 2 === 0} />
+                        <HistoryElement 
+                            key={i} 
+                            historyElement={historyElement} 
+                            inverted={i % 2 === 0} 
+                        />
                     </>)}
-                </VStack>
+                </Flex>
                     
             </Box>
         
