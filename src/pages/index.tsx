@@ -1,5 +1,5 @@
 import { DefaultLayout } from '@components/layouts'
-import { AboutSection, HistorySection, ProjectsSection, TechnologiesSection } from '@components/modules'
+import { AboutSection, HeroBanner, HistorySection, ProjectsSection, TechnologiesSection } from '@components/modules'
 import type { InferGetStaticPropsType, NextPage } from 'next'
 
 import * as content from '@content'
@@ -25,6 +25,8 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 		<DefaultLayout
 			title='Home'
 		>
+
+			<HeroBanner />
 
 			<AboutSection />
 

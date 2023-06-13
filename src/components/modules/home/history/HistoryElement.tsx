@@ -13,14 +13,12 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
 
     const { locale } = useRouter()
 
-	return (<>
-
+	return (
         <PopBox
             display='flex' 
             justifyContent={inverted ? 'flex-start' : 'flex-end'}
             w='100%'
             m='-32px 0'
-            // mt='em'
         >
 
             <Flex w='50%' flexDir={inverted ? 'row-reverse': 'row'} alignItems='center'>
@@ -83,6 +81,5 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
 
 
         </PopBox>
-
-    </>)
+    )
 }

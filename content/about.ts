@@ -1,4 +1,9 @@
-export const about: About = {
+export const subtitle: LocalizedString = {
+    en: '21 years old . french . web developer . tech lover',
+    fr: '21 ans . français . développeur web . passionné de tech'
+}
+
+export const about: LocalizedString<true> = {
     en: [
         `Hi! I'm Bartholomé Gili, a French student in IT who's in love with computing for some years now! Let's be selfish for once and talk a little bit about myself here 😉`,
         `I'm a victim of what I call the "creative fever", which constantly pushes me towards new projects and creations in as many domains as I can. Thanks to that, I first made my hand in Design, then in Montage and finaly, but certainly the most important one : in Computing Sciences.`,
@@ -13,7 +18,7 @@ export const about: About = {
     ]
 }
 
-export const skills: Skill[] = [
+export const skills: Content.Skill[] = [
     {
         name: 'Front-end',
         level: {

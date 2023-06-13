@@ -1,4 +1,4 @@
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, Text, Image, useBreakpointValue } from '@chakra-ui/react'
 import { BasicCard, Section } from '@components/shared'
 import { extractLocalizedString, extractLocalizedStrings } from '@core/utils/functions'
 import { useRouter } from 'next/router'
@@ -19,7 +19,15 @@ export const AboutSection: React.FC<AboutSectionProps> = (props) => {
             fr: 'À propos',
         }}>
 
-            <BasicCard>
+            <BasicCard pt={{ base: '10em', md: '5em' }}>
+
+                <Image 
+                    src='https://avatars.githubusercontent.com/u/66025667?v=4'
+                    width='100px'
+                    borderRadius='50%'
+                    position='absolute' top={{ base: '4.75em', md: 0 }} left='50%' transform='translate(-50%, -50%)'
+                />
+
                 {extractLocalizedStrings(about, locale).map((paragraph, index) =>
                     <Text key={index} mb='1em'>{paragraph}</Text>
                 )}
@@ -27,7 +35,7 @@ export const AboutSection: React.FC<AboutSectionProps> = (props) => {
 
             {/* Skills */}
 
-            <SimpleGrid templateColumns='repeat(3, 1fr)' gap='1rem' w='100%'>
+            <SimpleGrid templateColumns={`repeat(${useBreakpointValue({ base: '1', md: '3' })}, 1fr)`} gap='1rem' w='100%'>
 
                 {skills.map((skill, index) => 
 

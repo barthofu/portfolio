@@ -7,7 +7,7 @@ export enum ProjectStatus {
     Cancelled = 'cancelled',
 }
 
-export const projects: Project[] = [
+export const projects: Content.Project[] = [
     {
         name: 'TSCord',
         description: 'This template was created to give developers a starting point for new Discord bots, so that much of the initial setup can be avoided and developers can instead focus on meaningful bot features.',

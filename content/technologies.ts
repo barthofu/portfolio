@@ -1,6 +1,6 @@
 import { Type } from './types'
 
-export const technologies: Technology[] = [
+export const technologies: Content.Technology[] = [
     {
         id: 'react',
         name: 'React',

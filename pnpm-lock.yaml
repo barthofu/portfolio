@@ -10,6 +10,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.10.4
     version: 11.10.8(@emotion/react@11.10.8)(@types/react@18.0.21)(react@18.2.0)
+  '@fontsource/montserrat':
+    specifier: ^4.5.14
+    version: 4.5.14
   '@fontsource/open-sans':
     specifier: ^4.5.13
     version: 4.5.14
@@ -19,6 +22,12 @@ dependencies:
   '@fontsource/raleway':
     specifier: ^4.5.12
     version: 4.5.12
+  '@fontsource/work-sans':
+    specifier: ^4.5.14
+    version: 4.5.14
+  animejs:
+    specifier: ^3.2.1
+    version: 3.2.1
   framer-motion:
     specifier: ^7.6.1
     version: 7.10.3(react-dom@18.2.0)(react@18.2.0)
@@ -2795,6 +2804,10 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
+  /@fontsource/montserrat@4.5.14:
+    resolution: {integrity: sha512-fTvrteVzuFUePhr4QYBGoK8G/YHLJ3IhF1HhKg0AxcFvZajJT7rM7ULdmKLSd2PkX44R3aaFZq1zDbmjbGGI+w==}
+    dev: false
+
   /@fontsource/open-sans@4.5.14:
     resolution: {integrity: sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==}
     dev: false
@@ -2805,6 +2818,10 @@ packages:
 
   /@fontsource/raleway@4.5.12:
     resolution: {integrity: sha512-uKs13d6NFWU4vf5LSDHK/cbaAw+UXkzz03fKjyvkKq8Nop+CeB6o8STEDkZD9/uOo3v3sgm59Wyw8uGWvxoCiA==}
+    dev: false
+
+  /@fontsource/work-sans@4.5.14:
+    resolution: {integrity: sha512-AFBSDBA3hnSCXHwb52qBOMEGqF5nfdbANp+y5/hbE1PMjYfFY0lUdtUwL5J7mRAdyn1NJwobJlhduHtlAyPzmA==}
     dev: false
 
   /@humanwhocodes/config-array@0.10.7:
@@ -4912,6 +4929,10 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
     dev: true
+
+  /animejs@3.2.1:
+    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==}
+    dev: false
 
   /ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}

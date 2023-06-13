@@ -20,7 +20,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
             <link rel="icon" href={ iconHref } />
 		</Head>
 
-        <Flex justifyContent='center' px={{ base: '2rem', md: '2rem', lg: '5rem' }} py='10rem'>
+        <Flex justifyContent='center' px={{ base: '2rem', md: '0rem', lg: '5rem' }} pb='5rem'>
 
             <Flex
                 flexDirection='column' alignItems='center'

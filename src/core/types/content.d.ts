@@ -1,7 +1,5 @@
 namespace Content {
 
-    type About = LocalizedString<true>
-
     type Skill = {
         name: LocalizedString
         level: LocalizedString
