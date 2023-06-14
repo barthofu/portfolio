@@ -27,7 +27,7 @@ export const TechnologiesSection: React.FC<TechnologiesSectionProps> = (props) =
             
             <Grid w='100%' templateColumns={`repeat(${useBreakpointValue({ base: '3', md: '4', lg: '5' })}, 1fr)`} gap='1rem'>
                 {technologies
-                    .filter(technology => selectedType === null || technology.type === selectedType)
+                    .filter(technology => (selectedType === null || technology.type === selectedType) && !technology.hidden)
                     .map((technology, i) => 
 
                         <TechnologyCard

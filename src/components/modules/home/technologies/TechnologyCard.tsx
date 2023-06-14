@@ -4,6 +4,7 @@ import { PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { TechnologyIcon } from './TechnologyIcon'
 
 type TechnologyCardProps = {
     technology: Content.Technology
@@ -13,8 +14,7 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
 
     const { locale } = useRouter()
 
-    const name = extractLocalizedString(technology.name, locale),
-          imageSize = useBreakpointValue({ base: '3em', lg: '4em' })
+    const name = extractLocalizedString(technology.name, locale)
 
 	return (<>
 
@@ -38,23 +38,11 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
                     {name}
                 </Text>
 
-                {technology.icon.startsWith('http') ?
-                    <Image 
-                        src={technology.icon} 
-                        alt={name} 
-                        width={imageSize}
-                        alignSelf='center' 
-                        pb='1rem'
-                        maxW={imageSize}
-                    />
-                    :
-                    <Text as='i'
-                        className={getDevIconClass(technology.icon)}
-                        fontSize={imageSize}
-                        color='text.secondary'
-                        textAlign='center'
-                    />
-                }
+                <TechnologyIcon technology={technology}
+                    size={{ base: '3em', lg: '4em' }}
+                    linkWide={true}
+                    pb='1rem'
+                />
             
             </CardLayout>
         </PopBox>

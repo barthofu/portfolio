@@ -24,8 +24,10 @@ namespace Content {
          * Either an image url or a devicon id
          */
         icon: string
-        description?: LocalizedString,
+        description?: LocalizedString
+        url?: string
         mastery?: Mastery
+        hidden?: boolean
     }
 
     type Project = {
@@ -45,9 +47,6 @@ namespace Content {
         title: LocalizedString
         date: LocalizedString
         description: LocalizedString
-        technologies?: {
-            iconUrl: string
-            url: string 
-        }[]
+        technologies?: Technology['id'][]
     }
 }

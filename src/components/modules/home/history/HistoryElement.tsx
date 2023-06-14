@@ -1,9 +1,11 @@
-import { Box, Flex, HStack, Heading, Image, Link, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Flex, HStack, Heading, Image, Link, Text } from '@chakra-ui/react'
 import { BasicCard, PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
-import { getRandomValues } from 'crypto'
 import { useRouter } from 'next/router'
 import React from 'react'
+
+import { technologies } from '@content'
+import { TechnologyIcon } from '../technologies/TechnologyIcon'
 
 type HistoryElementProps = {
     historyElement: Content.HistoryElement
@@ -16,7 +18,7 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
 
     
     const isInverted = (invertedValue: string, notInvertedValue: string, mobileValue?: string): any => {
-        return useBreakpointValue({ base: mobileValue || notInvertedValue, lg: inverted ? invertedValue : notInvertedValue })
+        return { base: mobileValue || notInvertedValue, lg: inverted ? invertedValue : notInvertedValue }
     }
 
 	return (
@@ -69,18 +71,30 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
 
                     {/* Technologies */}
                     {historyElement.technologies && <>
-                        <HStack mt='1em' spacing='1em' zIndex={10}>
-                            {historyElement.technologies.map((technology, index) => (
-                                <Link href={technology.url} zIndex={10}>
-                                    <Image
-                                        key={index}
-                                        src={technology.iconUrl}
-                                        w='1.5em'
-                                        h='1.5em'
-                                        objectFit='contain'
+                        <HStack mt='1.75em' spacing='1em' zIndex={10} opacity='0.6'>
+                            {historyElement.technologies.map((technologyId) => {
+
+                                const technology = technologies.find(t => t.id === technologyId)
+                                if (!technology) return null
+
+                                return (
+                                    <TechnologyIcon key={technology.id} 
+                                        technology={technology} 
+                                        size='1.5em' 
                                     />
-                                </Link>
-                            ))}
+
+                                    // <Link href={technology.url} zIndex={10} key={technology.url}>
+                                    //     <Image
+                                    //         key={technology.url}
+                                    //         src={technology.icon}
+                                    //         alt={technology.url}
+                                    //         w='1.5em'
+                                    //         h='1.5em'
+                                    //         objectFit='contain'
+                                    //     />
+                                    // </Link>
+                                )
+                            })}
                         </HStack> 
                     </>}
 
