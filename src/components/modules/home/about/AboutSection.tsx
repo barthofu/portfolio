@@ -19,13 +19,13 @@ export const AboutSection: React.FC<AboutSectionProps> = (props) => {
             fr: 'À propos',
         }}>
 
-            <BasicCard pt={{ base: '10em', md: '5em' }}>
+            <BasicCard pt={{ base: '10em', lg: '5em' }}>
 
                 <Image 
                     src='https://avatars.githubusercontent.com/u/66025667?v=4'
                     width='100px'
                     borderRadius='50%'
-                    position='absolute' top={{ base: '4.75em', md: 0 }} left='50%' transform='translate(-50%, -50%)'
+                    position='absolute' top={{ base: '4.75em', lg: 0 }} left='50%' transform='translate(-50%, -50%)'
                 />
 
                 {extractLocalizedStrings(about, locale).map((paragraph, index) =>
@@ -35,7 +35,7 @@ export const AboutSection: React.FC<AboutSectionProps> = (props) => {
 
             {/* Skills */}
 
-            <SimpleGrid templateColumns={`repeat(${useBreakpointValue({ base: '1', md: '3' })}, 1fr)`} gap='1rem' w='100%'>
+            <SimpleGrid templateColumns={`repeat(${useBreakpointValue({ base: '1', lg: '3' })}, 1fr)`} gap='1rem' w='100%'>
 
                 {skills.map((skill, index) => 
 

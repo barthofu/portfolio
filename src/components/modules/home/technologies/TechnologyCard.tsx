@@ -1,4 +1,4 @@
-import { Image, Text } from '@chakra-ui/react'
+import { Image, Text, useBreakpointValue } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
 import { PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
@@ -13,7 +13,8 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
 
     const { locale } = useRouter()
 
-    const name = extractLocalizedString(technology.name, locale)
+    const name = extractLocalizedString(technology.name, locale),
+          imageSize = useBreakpointValue({ base: '3rem', lg: '4rem' })
 
 	return (<>
 
@@ -40,9 +41,10 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
                 <Image 
                     src={technology.imageUrl} 
                     alt={name} 
-                    width='4rem'
+                    width={imageSize}
                     alignSelf='center' 
                     pb='1rem'
+                    maxW={imageSize}
                 />
             
             </CardLayout>

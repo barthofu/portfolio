@@ -18,7 +18,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
         }}>
 
             
-            <Box pb='2rem'>
+            <Box pb='2rem' maxW='100%'>
                 <Filter<Tag>
                     data={tags}
                     selectedType={selectedType}

@@ -1,4 +1,4 @@
-import { Button, HStack, Text } from '@chakra-ui/react'
+import { Button, Flex, HStack, Stack, Text } from '@chakra-ui/react'
 import { Tag, tags } from '@content'
 import { extractLocalizedString } from '@core/utils/functions'
 import { useRouter } from 'next/router'
@@ -23,25 +23,28 @@ export const Filter = <T, >(props: FilterProps<T>) => {
     } 
 
 	return (<>
-        <HStack>
+        <HStack maxW='100%' overflow='auto'>
             
             <Text>{extractLocalizedString({
                 fr: 'Filtrer par type',
                 en: 'Filter by type'
             }, locale)}</Text>
-
-            {props.data.map((type, i) =>
-                <Button
-                    key={i}
-                    variant='outline'
-                    size='sm'
-                    borderRadius='10px'
-                    isActive={props.selectedType === type.id}
-                    onClick={() => onSelectHandler(type.id)}
-                >
-                    {extractLocalizedString(type.label, locale)}
-                </Button>
-            )}
+            
+            <HStack overflowX='auto'>
+                {props.data.map((type, i) =>
+                    <Button
+                        key={i}
+                        variant='outline'
+                        size='sm'
+                        minW='auto'
+                        borderRadius='10px'
+                        isActive={props.selectedType === type.id}
+                        onClick={() => onSelectHandler(type.id)}
+                    >
+                        {extractLocalizedString(type.label, locale)}
+                    </Button>
+                )}
+            </HStack>
             
         </HStack>
     </>)

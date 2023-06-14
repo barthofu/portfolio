@@ -11,7 +11,7 @@ export const projects: Content.Project[] = [
     {
         name: 'TSCord',
         description: 'This template was created to give developers a starting point for new Discord bots, so that much of the initial setup can be avoided and developers can instead focus on meaningful bot features.',
-        imageUrl: 'https://www.angeluriot.com/portfolio/resources/images/projects/Neural_network.png',
+        imageUrl: 'https://www.angeluriot.com/portfolio/resources/images/projects/Neural_network.webp',
         tags: [Tag.Personal],
         status: ProjectStatus.Completed,
         year: '2022',

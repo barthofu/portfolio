@@ -16,10 +16,10 @@ export const Section: React.FC<SectionProps> = (props) => {
         <Box as='section'
             display='flex'
             flexDirection='column'
-            alignItems={{ base: 'center', md: 'flex-start' }}
+            alignItems={{ base: 'center', lg: 'flex-start' }}
             gap='1rem'
             width='100%'
-            pb='8rem'
+            pb={{ base: '4rem', lg: '8rem' }}
         >
             <Heading as='h2' 
                 size='2xl' mb='20px'

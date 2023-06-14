@@ -27,7 +27,7 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
                 <Box
                     w='1px' h='100%'
                     bg='linear-gradient(transparent 0,rgba(255, 255, 255, 0.5) 15%,rgba(255, 255, 255, 0.5) 85%,transparent 100%)'
-                    position='absolute' top='0' left='50%' transform='translate(-50%, 0)'
+                    position='absolute' top='0' left={{ base: '0', lg: '50%' }} transform='translate(-50%, 0)'
                 />
 
                 {/* Elements */}

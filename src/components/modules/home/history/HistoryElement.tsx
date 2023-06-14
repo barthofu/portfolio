@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, Heading, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
 import { BasicCard, PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
+import { getRandomValues } from 'crypto'
 import { useRouter } from 'next/router'
 import React from 'react'
 
@@ -13,20 +14,25 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
 
     const { locale } = useRouter()
 
+    
+    const isInverted = (invertedValue: string, notInvertedValue: string, mobileValue?: string): any => {
+        return useBreakpointValue({ base: mobileValue || notInvertedValue, lg: inverted ? invertedValue : notInvertedValue })
+    }
+
 	return (
         <PopBox
             display='flex' 
-            justifyContent={inverted ? 'flex-start' : 'flex-end'}
+            justifyContent={isInverted('flex-start', 'flex-end', 'flex-start')}
             w='100%'
-            m='-32px 0'
+            m={{ base: '1em 0', lg: '-32px 0' }}
         >
 
-            <Flex w='50%' flexDir={inverted ? 'row-reverse': 'row'} alignItems='center'>
+            <Flex w={{ base: '100%', lg: '50%' }} flexDir={isInverted('row-reverse', 'row')} alignItems='center'>
 
                 {/* Line */}
                 <Box 
                     w='50px' h='1px'
-                    bg={`linear-gradient(${inverted ? '-90deg' : '90deg'},rgba(255, 255, 255, 0.5) 20%,transparent 100%)`}
+                    bg={`linear-gradient(${isInverted('-90deg', '90deg')},rgba(255, 255, 255, 0.5) 20%,transparent 100%)`}
                     borderRadius='full'
                 />
 
@@ -63,21 +69,6 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
                 </BasicCard>
 
             </Flex>
-
-
-
-            {/* Date */}
-            {/* <Box w='50%'>
-                <Box 
-                    textAlign={inverted ? 'left' : 'right'} 
-                    marginRight={inverted ? '0' : '1em'}
-                    marginLeft={inverted ? '1em' : '0'}
-                >{historyElement.year}</Box>
-            </Box> */}
-
-           
-
-
 
 
         </PopBox>

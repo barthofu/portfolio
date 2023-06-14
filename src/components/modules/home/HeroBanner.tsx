@@ -17,19 +17,19 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
         <Flex 
             flexDirection='column' 
             alignItems='flex-start' justifyContent='center'
-            w='98vw' h='70vh'
+            w='98vw' h={{ base: '40vh', lg: '70vh' }}
             overflowX='hidden'
         >
 
             <Box
                 overflowX='hidden'
                 width='100%'
-                mb='4em'
+                mb={{ base: '2.5em', lg: '4em' }}
             >
 
                 <ParallaxText baseVelocity={-2} length={4}>
                     <Text
-                        fontSize={{ base: '5rem', md: '9rem' }} fontWeight='black'
+                        fontSize={{ base: '5rem', lg: '9rem' }} fontWeight='black'
                         fontFamily='Montserrat'
                         mx='.5em'
                     >Bartholomé</Text>
@@ -39,7 +39,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
 
                 <ParallaxText baseVelocity={2} length={9}>
                     <Text
-                        fontSize={{ base: '5rem', md: '9rem' }} fontWeight='black'
+                        fontSize={{ base: '5rem', lg: '9rem' }} fontWeight='black'
                         fontFamily='Montserrat'
                         color='background.primary' textShadow='0 0 2px #fff' 
                         textAlign='right'
@@ -51,7 +51,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
             <Text
                 w='100%' mb='1em'
                 textAlign='center'
-                fontSize='1.3em' fontFamily='Raleway'
+                fontSize={{ base: '1rem', lg: '1.3rem' }} fontFamily='Raleway'
                 color='gray'
                 letterSpacing={'.1em'}
             >
