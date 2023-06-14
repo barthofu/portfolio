@@ -9,7 +9,7 @@ type TechnologiesSectionProps = {}
 
 export const TechnologiesSection: React.FC<TechnologiesSectionProps> = (props) => {
 
-    const [selectedType, setSelectedType] = React.useState<Type | null>(null)
+    const [selectedType, setSelectedType] = React.useState<Type | null>(Type.Language)
 
 	return (<>
         <Section title='Technologies'>

@@ -38,6 +38,7 @@ namespace Content {
         imageUrl?: string
         githubUrl?: string
         demoUrl?: string
+        hidden?: boolean
     }
 
     type HistoryElement = {

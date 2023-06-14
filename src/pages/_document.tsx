@@ -6,7 +6,7 @@ export default function Document() {
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
             </Head>
-        <body>
+        <body style={{ overflowX: 'hidden' }}>
             <Main />
             <NextScript />
         </body>

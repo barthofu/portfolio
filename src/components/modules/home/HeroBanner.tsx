@@ -17,7 +17,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
         <Flex 
             flexDirection='column' 
             alignItems='flex-start' justifyContent='center'
-            w='98vw' h={{ base: '40vh', lg: '70vh' }}
+            w='100vw' h={{ base: '40vh', lg: '70vh' }}
             overflowX='hidden'
         >
 

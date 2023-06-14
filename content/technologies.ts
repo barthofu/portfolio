@@ -318,5 +318,23 @@ export const technologies: Content.Technology[] = [
         name: 'Vitest',
         type: Type.Library,
         icon: 'https://seeklogo.com/images/V/vitest-logo-9ADDA575A5-seeklogo.com.png',
+    },
+    {
+        id: 'mikro-orm',
+        name: 'MikroORM',
+        type: Type.Library,
+        icon: 'https://avatars.githubusercontent.com/u/54766168?s=200&v=4',
+    },
+    {
+        id: 'diesel',
+        name: 'Diesel',
+        type: Type.Library,
+        icon: 'https://global.discourse-cdn.com/standard10/uploads/diesel/original/1X/945720760e2734f43b77244049b92ff32f226923.png',
+    },
+    {
+        id: 'discordjs',
+        name: 'Discord.js',
+        type: Type.Library,
+        icon: 'https://media.discordapp.net/attachments/554783275915280404/1118564168631599104/image-removebg-preview.png?width=532&height=532',
     }
 ]

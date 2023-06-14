@@ -3,6 +3,7 @@ import { Section } from '@components/shared'
 import { history } from '@content'
 import React from 'react'
 import { HistoryElement } from './HistoryElement'
+import { extractLocalizedString } from '@core/utils/functions'
 
 type HistorySectionProps = {}
 
@@ -32,11 +33,11 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
 
                 {/* Elements */}
                 <Flex flexDir='column' w='100%' mt='5em'>
-                    {history.map((historyElement, i) =>
+                    {history.map((historyElement, index) =>
                         <HistoryElement 
-                            key={i} 
+                            key={extractLocalizedString(historyElement.title, 'en')} 
                             historyElement={historyElement} 
-                            inverted={i % 2 === 0} 
+                            inverted={index % 2 === 0} 
                         />
                     )}
                 </Flex>

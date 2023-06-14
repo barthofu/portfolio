@@ -4,6 +4,7 @@ import { Filter, Section } from '@components/shared'
 import React from 'react'
 
 import { Tag, projects, tags } from '@content'
+import { extractLocalizedString } from '@core/utils/functions'
 
 type ProjectsSectionProps = {}
 
@@ -28,14 +29,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
             
             <VStack w='100%' spacing='5rem'>
                 {projects
-                    .filter(project => selectedType === null || project.tags.includes(selectedType))
+                    .filter(project => (selectedType === null || project.tags.includes(selectedType)) && !project.hidden)
                     .map((project, index) =>
-                
-                    <Project
-                        key={index}
-                        project={project}
-                        inverted={index % 2 !== 0}    
-                    />
+                    
+                        <Project
+                            key={extractLocalizedString(project.name, 'en')}
+                            project={project}
+                            inverted={index % 2 !== 0}    
+                        />
                 )}
             </VStack>
 

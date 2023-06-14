@@ -24,6 +24,19 @@ const styles = {
             textDecoration: 'none',
         },
 
+        // scrollbar
+
+        '::-webkit-scrollbar': {
+            width: '5px'
+        },
+        '::-webkit-scrollbar-thumb': {
+            borderRadius: '10px',
+            background: 'background.tertiary',
+        },
+        '::-webkit-scrollbar-track': {
+            background: 'rgba(0, 0, 0, 0)'
+        }
+
     })
 }
 

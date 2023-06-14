@@ -5,51 +5,36 @@ export const subtitle: LocalizedString = {
 
 export const about: LocalizedString<true> = {
     en: [
-        `Hi! I'm Bartholomé Gili, a French student in IT who's in love with computing for some years now! Let's be selfish for once and talk a little bit about myself here 😉`,
-        `I'm a victim of what I call the "creative fever", which constantly pushes me towards new projects and creations in as many domains as I can. Thanks to that, I first made my hand in Design, then in Montage and finaly, but certainly the most important one : in Computing Sciences.`,
-        `Fueled by high energy levels and boundless enthusiasm, I'm easily inspired and more then willing to follow my fascinations wherever they take me. I'm never satisfied to just come up with ideas. Instead I have an almost impulsive need to act on them.`,
-        `I don't like to define myself by the work I've done. I define myself by the work I want to do. Skills can be taught, personality is inherent. I prefer to keep learning, continue challenging myself and do interesting things that matter for me.`,
+        `Hi 👋 I'm Bartholomé, a French IT student who has fallen in love with this fascinating field!`,
+        `Victim of a creative fever that constantly pushes me towards new projects and creations, I explored design, editing and even music before finally taking up residence in the vast world of computer development.`,
+        `I like to define myself as a true jack-of-all-trades in this field, with a particular passion for the web (in all its forms) that has grown over the years.`,
+        `I'm a great preacher of the holy Typesafety which brings as much efficiency as simplicity. As a true tooling maniac, I'm passionate about making the development of any project as efficient as possible. Just sprinkle a little DevOps on top and you've got a well-stocked application!`,
+        `I'm never satisfied with mere ideas; I constantly need to take action and make them a reality, so that I'm not defined by the projects I want to carry out, but by the ones I do.`,
+        `In the end, I prefer to keep learning, take on new challenges and carry out interesting projects that make sense to me, while sharing this passion with as many people as possible!`,
+        `Welcome to my website and enjoy your visit.`
     ],
     fr: [
-        `Salut ! Je suis Bartholomé Gili, un étudiant français en informatique qui est amoureux de l'informatique depuis quelques années maintenant ! Soyons égoïstes pour une fois et parlons un peu de moi ici 😉`,
-        `Je suis victime de ce que j'appelle la "fièvre créative", qui me pousse constamment vers de nouveaux projets et créations dans autant de domaines que possible. Grâce à cela, j'ai d'abord fait mes preuves en Design, puis en Montage et enfin, mais certainement le plus important : en Sciences Informatiques.`,
-        `Alimenté par des niveaux d'énergie élevés et un enthousiasme sans bornes, je suis facilement inspiré et plus que disposé à suivre mes fascinations où qu'elles me mènent. Je ne suis jamais satisfait de simplement avoir des idées. Au lieu de cela, j'ai un besoin presque impulsif d'agir sur elles.`,
-        `Je n'aime pas me définir par le travail que j'ai fait. Je me définis par le travail que je veux faire. Les compétences peuvent être enseignées, la personnalité est inhérente. Je préfère continuer à apprendre, continuer à me mettre au défi et faire des choses intéressantes qui comptent pour moi.`,
+        `Salut 👋 Moi c'est Bartholomé, alternant français en informatique tombé amoureux de ce de domaine si passionnant !`,
+        `Grand victime d'une fièvre créative me poussant constamment vers de nouveaux projets et créations, j'ai exploré le design, le montage et même la musique avant d'élire enfin domicile dans le vaste monde du développement informatique.`,
+        `J'aime me définir comme un véritable touche-à-tout dans ce domaine, avec une passion plus particulière pour le web (sous toutes ses formes) qui a su grandir au fil des années.`,
+        `Grand prêcheur de la sainte Typesafety apportant autant d'efficiency et que de simplicity (je me permets d'emprunter la langue de Shakespeare pour que cette rime fonctionne 😋). Véritable maniac du Tooling, J'ai à cœur de rendre le développement de n'importe quel projet aussi performant que possible.
+        Plus qu'à saupoudrer le tout d'un peu de DevOps et on obtient une application bien garnie !`,
+        `Je ne me satisfais jamais de simples idées, j'ai constamment ce besoin d'agir et de les concrétiser pour ne pas me définir par les projets que je souhaite réaliser, mais par ceux que j'accomplis.`,
+        `En fin de compte, je préfère continuer à apprendre, relever de nouveaux défis et réaliser des projets intéressants qui ont du sens pour moi, tout en partageant cette passion avec le plus grand nombre possible !`,
+        `Bienvenue sur mon site web et profitez pleinement de votre visite.`
     ]
 }
 
 export const skills: Content.Skill[] = [
-    {
-        name: 'Front-end',
-        level: {
-            en: `+2 years of experience`,
-            fr: `+2 ans d\'expérience`,
-        },
-        description: {
-            en: `I have a solid grasp of various front-end technologies, such as React, TypeScript, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
-            fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
-        }
-    },
-    {
-        name: 'Front-end',
-        level: {
-            en: `+2 years of experience`,
-            fr: `+2 ans d\'expérience`,
-        },
-        description: {
-            en: `I have a solid grasp of various front-end technologies, such as React, TypeScript, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
-            fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
-        }
-    },
-    {
-        name: 'Front-end',
-        level: {
-            en: `+2 years of experience`,
-            fr: `+2 ans d\'expérience`,
-        },
-        description: {
-            en: `I have a solid grasp of various front-end technologies, such as React, TypeScript, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
-            fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
-        }
-    }
+    // {
+    //     name: 'Front-end',
+    //     level: {
+    //         en: `+2 years of experience`,
+    //         fr: `+2 ans d\'expérience`,
+    //     },
+    //     description: {
+    //         en: `I have a solid grasp of various front-end technologies, such as React, Next.js, Angular, SCSS and HTML. Over time, I've honed my coding skills to create interactive and eye-catching user interfaces.`,
+    //         fr: `Il y a plus de deux ans, j'ai commencé à écrire ma première ligne de code. Depuis, j'ai acquis une solide maîtrise de diverses technologies front-end, telles que React, TypeScript, SCSS et HTML. Au fil du temps, j'ai perfectionné mes compétences en codage pour créer des interfaces utilisateur interactives et attrayantes.`,
+    //     }
+    // }
 ]
