@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Flex, HStack, Heading, Image, Link, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
 import { BasicCard, PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
 import { getRandomValues } from 'crypto'
@@ -46,7 +46,7 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
                         color='text.secondary'
                         mb='.5em'
                     >
-                        {historyElement.year}
+                        {extractLocalizedString(historyElement.date, locale)}
                     </Text>
 
                     {/* Title */}
@@ -62,9 +62,28 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
                     {/* Description */}
                     <Text 
                         maxW='80%'
+                        whiteSpace='pre-wrap'
                     >
                         {extractLocalizedString(historyElement.description, locale)}
                     </Text>
+
+                    {/* Technologies */}
+                    {historyElement.technologies && <>
+                        <HStack mt='1em' spacing='1em' zIndex={10}>
+                            {historyElement.technologies.map((technology, index) => (
+                                <Link href={technology.url} zIndex={10}>
+                                    <Image
+                                        key={index}
+                                        src={technology.iconUrl}
+                                        w='1.5em'
+                                        h='1.5em'
+                                        objectFit='contain'
+                                    />
+                                </Link>
+                            ))}
+                        </HStack> 
+                    </>}
+
 
                 </BasicCard>
 

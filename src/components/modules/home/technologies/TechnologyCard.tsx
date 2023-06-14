@@ -14,7 +14,7 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
     const { locale } = useRouter()
 
     const name = extractLocalizedString(technology.name, locale),
-          imageSize = useBreakpointValue({ base: '3rem', lg: '4rem' })
+          imageSize = useBreakpointValue({ base: '3em', lg: '4em' })
 
 	return (<>
 
@@ -37,17 +37,32 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
                 >
                     {name}
                 </Text>
-                
-                <Image 
-                    src={technology.imageUrl} 
-                    alt={name} 
-                    width={imageSize}
-                    alignSelf='center' 
-                    pb='1rem'
-                    maxW={imageSize}
-                />
+
+                {technology.icon.startsWith('http') ?
+                    <Image 
+                        src={technology.icon} 
+                        alt={name} 
+                        width={imageSize}
+                        alignSelf='center' 
+                        pb='1rem'
+                        maxW={imageSize}
+                    />
+                    :
+                    <Text as='i'
+                        className={getDevIconClass(technology.icon)}
+                        fontSize={imageSize}
+                        color='text.secondary'
+                        textAlign='center'
+                    />
+                }
             
             </CardLayout>
         </PopBox>
     </>)
+}
+
+const getDevIconClass = (icon: string) => {
+    
+    const elements = icon.split(' ')
+    return `devicon-${elements[0]}-original devicon-${elements[0]}-plain ${elements.includes('not-colored') ? '' : 'colored'}`
 }

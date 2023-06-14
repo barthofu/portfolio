@@ -1,4 +1,4 @@
-import { Box, HStack, Heading, Icon, Image, Link, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, HStack, Heading, Icon, Image, Link, Text, VStack } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
 import { extractLocalizedString } from '@core/utils/functions'
 import { useRouter } from 'next/router'
@@ -58,21 +58,23 @@ export const Project: React.FC<ProjectProps> = ({ project, inverted }) => {
                 </CardLayout>
 
                 {/* Technologies */}
-                {project.technologies && project.technologies.map((technologyId, index) => {
-                    const technology = technologies.find(t => t.id === technologyId)
-                    if (!technology) return null
-                    return <Text mr='1em' key={index} color='text.secondary'>{extractLocalizedString(technology.name, locale)}</Text>
-                })}
+                <Flex>
+                    {project.technologies && project.technologies.map((technologyId, index) => {
+                        const technology = technologies.find(t => t.id === technologyId)
+                        if (!technology) return null
+                        return <Text mr='.8em' key={index} color='text.secondary'>{extractLocalizedString(technology.name, locale)}</Text>
+                    })}
+                </Flex>
 
                 {/* Links */}
                 <HStack spacing='1em'>
                     {project.githubUrl &&
-                        <Link href={project.githubUrl}>
+                        <Link href={project.githubUrl} target='_blank'>
                             <Icon as={FiGithub} fontSize='1.5rem'/>
                         </Link>
                     }
                     {project.demoUrl && 
-                        <Link href={project.demoUrl}>
+                        <Link href={project.demoUrl} target='_blank'>
                             <Icon as={BsPlay} color='green.400' fontSize='2.5rem' fontWeight='bolder'></Icon>
                         </Link> 
                     }

@@ -6,6 +6,13 @@ namespace Content {
         description: LocalizedString
     }
 
+    enum Mastery {
+        Beginner,
+        Intermediate,
+        Advanced,
+        Expert,
+    }
+
     type Technology = {
         /**
          * slugified version of the name
@@ -13,8 +20,12 @@ namespace Content {
         id: string 
         name: LocalizedString
         type: TechnologyType
-        imageUrl: string
+        /**
+         * Either an image url or a devicon id
+         */
+        icon: string
         description?: LocalizedString,
+        mastery?: Mastery
     }
 
     type Project = {
@@ -31,7 +42,11 @@ namespace Content {
 
     type HistoryElement = {
         title: LocalizedString
-        year: string
+        date: LocalizedString
         description: LocalizedString
+        technologies?: {
+            iconUrl: string
+            url: string 
+        }[]
     }
 }
