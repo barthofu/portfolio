@@ -1,10 +1,10 @@
-import { Box, Flex, HStack, Heading, Image, Link, Text } from '@chakra-ui/react'
+import { Box, Flex, HStack, Heading, Text } from '@chakra-ui/react'
 import { BasicCard, PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 import { technologies } from '@content'
+import { useLocale } from '@core/hooks/useLocale'
 import { TechnologyIcon } from '../technologies/TechnologyIcon'
 
 type HistoryElementProps = {
@@ -14,8 +14,7 @@ type HistoryElementProps = {
 
 export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, inverted }) => {
 
-    const { locale } = useRouter()
-
+    const locale = useLocale()
     
     const isInverted = (invertedValue: string, notInvertedValue: string, mobileValue?: string): any => {
         return { base: mobileValue || notInvertedValue, lg: inverted ? invertedValue : notInvertedValue }

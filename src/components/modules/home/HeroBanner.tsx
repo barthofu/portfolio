@@ -1,16 +1,16 @@
-import { Box, Divider, Flex, Heading, Image, Text, VStack, keyframes } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import { ParallaxText } from '@components/shared'
 import React from 'react'
 
 import { subtitle } from '@content'
+import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 
 type HeroBannerProps = {}
 
 export const HeroBanner: React.FC<HeroBannerProps> = () => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
 	return (<>
 

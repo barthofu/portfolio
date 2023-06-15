@@ -1,16 +1,16 @@
-import { SimpleGrid, Text, Image, useBreakpointValue } from '@chakra-ui/react'
+import { Image, SimpleGrid, Text, useBreakpointValue } from '@chakra-ui/react'
 import { BasicCard, Section } from '@components/shared'
 import { extractLocalizedString, extractLocalizedStrings } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 import { about, skills } from '@content'
+import { useLocale } from '@core/hooks/useLocale'
 
 type AboutSectionProps = {}
 
 export const AboutSection: React.FC<AboutSectionProps> = (props) => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
 	return (<>
 

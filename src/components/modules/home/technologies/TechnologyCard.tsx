@@ -1,8 +1,8 @@
-import { Image, Text, useBreakpointValue } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
 import { PopBox } from '@components/shared'
+import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { TechnologyIcon } from './TechnologyIcon'
 
@@ -12,7 +12,7 @@ type TechnologyCardProps = {
 
 export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
     const name = extractLocalizedString(technology.name, locale)
 

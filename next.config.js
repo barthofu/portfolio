@@ -10,10 +10,10 @@ const nextConfig = {
 		includePaths: [path.join(__dirname, 'public/styles/')],
 	},
 
-	i18n: {
-		locales: ['en', 'fr'],
-		defaultLocale: 'en'
-	}
+	// i18n: {
+	// 	locales: ['en', 'fr'],
+	// 	defaultLocale: 'en'
+	// }
 }
 
 module.exports = nextConfig

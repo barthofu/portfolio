@@ -1,6 +1,6 @@
 import { Box, Heading } from '@chakra-ui/react'
+import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 type SectionProps = {
@@ -10,7 +10,7 @@ type SectionProps = {
 
 export const Section: React.FC<SectionProps> = (props) => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
 	return (<>
         <Box as='section'

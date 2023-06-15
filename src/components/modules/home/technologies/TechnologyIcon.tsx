@@ -1,6 +1,6 @@
 import { Image, Link, ResponsiveValue, Text } from '@chakra-ui/react'
+import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 type TechnologyIconProps = {
@@ -11,7 +11,7 @@ type TechnologyIconProps = {
 
 export const TechnologyIcon: React.FC<TechnologyIconProps> = ({ technology, size, linkWide, ...rest }) => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
 	return (<>
         <Link href={technology.url} zIndex={15} target='_blank'

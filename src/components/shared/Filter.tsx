@@ -1,7 +1,6 @@
-import { Button, Flex, HStack, Stack, Text } from '@chakra-ui/react'
-import { Tag, tags } from '@content'
+import { Button, HStack, Text } from '@chakra-ui/react'
+import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
 
 type FilterProps<T> = {
@@ -15,7 +14,7 @@ type FilterProps<T> = {
 
 export const Filter = <T, >(props: FilterProps<T>) => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
     const onSelectHandler = (type: T) => {
         if (props.selectedType === type) props.setSelectedType(null)

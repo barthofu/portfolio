@@ -37,6 +37,9 @@ dependencies:
   next:
     specifier: 12.3.1
     version: 12.3.1(@babel/core@7.21.5)(react-dom@18.2.0)(react@18.2.0)(sass@1.62.1)
+  next-language-detector:
+    specifier: ^1.0.2
+    version: 1.0.2
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -1402,6 +1405,13 @@ packages:
       core-js-pure: 3.30.1
       regenerator-runtime: 0.13.11
     dev: true
+
+  /@babel/runtime@7.16.7:
+    resolution: {integrity: sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.11
+    dev: false
 
   /@babel/runtime@7.21.5:
     resolution: {integrity: sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==}
@@ -7791,6 +7801,12 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
+  /i18next-browser-languagedetector@6.1.2:
+    resolution: {integrity: sha512-YDzIGHhMRvr7M+c8B3EQUKyiMBhfqox4o1qkFvt4QXuu5V2cxf74+NCr+VEkUuU0y+RwcupA238eeolW1Yn80g==}
+    dependencies:
+      '@babel/runtime': 7.21.5
+    dev: false
+
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -8986,6 +9002,13 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /next-language-detector@1.0.2:
+    resolution: {integrity: sha512-kw6oMrvSZgT4JW2xay+nOJszKYO0IbBBn209TWwaCD7neBpH/DHZu5tISboKwaOHbrYSptEcUgX+L5Cmx0SJ6g==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      i18next-browser-languagedetector: 6.1.2
+    dev: false
 
   /next@12.3.1(@babel/core@7.21.5)(react-dom@18.2.0)(react@18.2.0)(sass@1.62.1):
     resolution: {integrity: sha512-l7bvmSeIwX5lp07WtIiP9u2ytZMv7jIeB8iacR28PuUEFG5j0HGAPnMqyG5kbZNBG2H7tRsrQ4HCjuMOPnANZw==}

@@ -1,13 +1,13 @@
-import { Badge, Box, Flex, HStack, Heading, Icon, Image, Link, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, HStack, Heading, Icon, Image, Link, Text, VStack } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
 import { extractLocalizedString } from '@core/utils/functions'
-import { useRouter } from 'next/router'
 import React from 'react'
-import { FiGithub, FiPlay } from 'react-icons/fi'
 import { BsPlay } from 'react-icons/bs'
+import { FiGithub } from 'react-icons/fi'
 
-import { technologies, tags, statuses } from '@content'
 import { PopBox } from '@components/shared'
+import { statuses, tags, technologies } from '@content'
+import { useLocale } from '@core/hooks/useLocale'
 
 type ProjectProps = {
     project: Content.Project
@@ -16,7 +16,7 @@ type ProjectProps = {
 
 export const Project: React.FC<ProjectProps> = ({ project, inverted }) => {
 
-    const { locale } = useRouter()
+    const locale = useLocale()
 
     const parsedStatus = statuses.find(t => t.id === project.status)
     const direction = inverted ? 'flex-end' : 'flex-start'
@@ -124,6 +124,7 @@ export const Project: React.FC<ProjectProps> = ({ project, inverted }) => {
                 :
                 <Image 
                     src={project.imageUrl}
+                    alt={extractLocalizedString(project.name, locale)}
                     position='absolute'
                     w='50%'
                     right={inverted ? 'unset' : 0} left={inverted ? 0 : 'unset'}
