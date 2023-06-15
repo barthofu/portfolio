@@ -22,6 +22,6 @@ jobs:
                 host: ${{ env.HOST }}
                 port: ${{ env.PORT }}
                 username: ${{ env.USERNAME }}
-                key: ${{ env.KEY }}
+                key: ${{ env.SSHKEY }}
                 source: ${{ needs.build.outputs.artifacts_path }}/exported-app
                 target: ${{ env.VPS_PROJECT_PATH }}
