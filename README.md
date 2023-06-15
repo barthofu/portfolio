@@ -13,4 +13,5 @@
 - [ ] Articles
 - [ ] Deployment
 - [ ] Fill the `README.md` file	
+- [x] CI/CD
 - [x] Responsive

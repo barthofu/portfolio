@@ -45,13 +45,14 @@ jobs:
             - name: Install dependencies
               run: pnpm install
       
-            - name: Build
+            - name: Build static website
               run: |
                 pnpm build
                 pnpm export
 
             - name: Archive artifacts
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
-                name: exported-app
-                path: out
+                name: static-website
+                path: out/
+                if-no-files-found: error

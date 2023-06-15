@@ -16,12 +16,20 @@ jobs:
         needs: build
         runs-on: ubuntu-latest
         steps:
-            - name: Executing remote ssh commands using password
+            - name: Download build artifact
+              uses: actions/download-artifact@v3
+              with:
+                name: static-website
+
+            - name: Debug
+              run: ls -la
+
+            - name: Deploy to VPS using SCP
               uses: appleboy/scp-action@master
               with:
                 host: ${{ secrets.HOST }}
                 port: ${{ secrets.PORT }}
                 username: ${{ secrets.USERNAME }}
-                key: ${{ secrets.SSHKEY }}
-                source: ${{ needs.build.outputs.artifacts_path }}/exported-app
+                password: ${{ secrets.PASSWORD }}
+                source: ./*
                 target: ${{ secrets.VPS_PROJECT_PATH }}
