@@ -6,6 +6,7 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	output: 'standalone',
+	trailingSlash: true,
 
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'public/styles/')],
