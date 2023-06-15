@@ -19,9 +19,9 @@ jobs:
             - name: Executing remote ssh commands using password
               uses: appleboy/scp-action@master
               with:
-                host: ${{ env.HOST }}
-                port: ${{ env.PORT }}
-                username: ${{ env.USERNAME }}
-                key: ${{ env.SSHKEY }}
+                host: ${{ secrets.HOST }}
+                port: ${{ secrets.PORT }}
+                username: ${{ secrets.USERNAME }}
+                key: ${{ secrets.SSHKEY }}
                 source: ${{ needs.build.outputs.artifacts_path }}/exported-app
-                target: ${{ env.VPS_PROJECT_PATH }}
+                target: ${{ secrets.VPS_PROJECT_PATH }}
