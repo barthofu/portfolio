@@ -21,7 +21,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
 	return (<>
         <Head>
 			<title>{ title }</title>
-            <link rel="icon" href={ iconHref } />
+            {iconHref && <link rel="icon" href={ iconHref } />}
 		</Head>
 
         <LocaleContext.Provider value={{

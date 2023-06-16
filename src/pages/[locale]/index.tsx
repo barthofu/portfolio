@@ -33,7 +33,7 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 	return (<>
 
 		<DefaultLayout
-			title='Home'
+			title='Bartholomé Gili - Portfolio'
             locale={props.locale}
 		>
 
