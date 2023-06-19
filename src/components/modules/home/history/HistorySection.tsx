@@ -12,8 +12,8 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
 	return (
 
         <Section title={{
-            en: 'Experience',
-            fr: 'Expérience'
+            en: 'Experiences',
+            fr: 'Expériences'
         }}>
 
             <Box

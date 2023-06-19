@@ -25,9 +25,6 @@ dependencies:
   '@fontsource/work-sans':
     specifier: ^4.5.14
     version: 4.5.14
-  animejs:
-    specifier: ^3.2.1
-    version: 3.2.1
   devicon:
     specifier: ^2.15.1
     version: 2.15.1
@@ -55,9 +52,6 @@ dependencies:
   sass:
     specifier: ^1.55.0
     version: 1.62.1
-  zod:
-    specifier: ^3.19.1
-    version: 3.21.4
 
 devDependencies:
   '@chakra-ui/storybook-addon':
@@ -4942,10 +4936,6 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
     dev: true
-
-  /animejs@3.2.1:
-    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==}
-    dev: false
 
   /ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -11827,7 +11817,3 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-  /zod@3.21.4:
-    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: false

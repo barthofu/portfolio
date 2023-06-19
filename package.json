@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "next": "next",
-    "plop": "plop --plopfile ./cli/plopfile.js",
+    "generate": "plop --plopfile ./cli/plopfile.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -22,7 +22,6 @@
     "@fontsource/peace-sans": "^4.5.0",
     "@fontsource/raleway": "^4.5.12",
     "@fontsource/work-sans": "^4.5.14",
-    "animejs": "^3.2.1",
     "devicon": "^2.15.1",
     "framer-motion": "^7.6.1",
     "next": "12.3.1",
@@ -31,8 +30,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-intersection-observer": "^9.4.3",
-    "sass": "^1.55.0",
-    "zod": "^3.19.1"
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@chakra-ui/storybook-addon": "^4.0.16",

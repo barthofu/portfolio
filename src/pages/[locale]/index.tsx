@@ -1,9 +1,10 @@
 import { DefaultLayout } from '@components/layouts'
 import { AboutSection, HeroBanner, HistorySection, ProjectsSection, TechnologiesSection } from '@components/modules'
+import { Footer } from '@components/shared'
+import { getLocalizedPathSlugs } from '@core/utils/functions'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
 import { Locale } from '@content'
-import { getLocalizedPathSlugs } from '@core/utils/functions'
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
@@ -46,6 +47,8 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 			<ProjectsSection />
 
 			<HistorySection />
+
+            <Footer />
 
 		</DefaultLayout>		
 	

@@ -9,9 +9,9 @@
 - [ ] Contact section
 - [ ] Footer
 - [ ] License
-- [ ] Favicon
 - [ ] Articles
-- [ ] Deployment
 - [ ] Fill the `README.md` file	
+- [x] Deployment
 - [x] CI/CD
+- [x] Favicon
 - [x] Responsive

@@ -48,9 +48,3 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
         </PopBox>
     </>)
 }
-
-const getDevIconClass = (icon: string) => {
-    
-    const elements = icon.split(' ')
-    return `devicon-${elements[0]}-original devicon-${elements[0]}-plain ${elements.includes('not-colored') ? '' : 'colored'}`
-}

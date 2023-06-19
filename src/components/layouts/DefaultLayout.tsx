@@ -27,7 +27,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         <LocaleContext.Provider value={{
             locale
         }}>
-            <Flex justifyContent='center' px={{ base: '2rem', lg: '5rem' }} pb='5rem'>
+            <Flex justifyContent='center' px={{ base: '2rem', lg: '5rem' }}>
 
                 <Flex
                     flexDirection='column' alignItems='center'

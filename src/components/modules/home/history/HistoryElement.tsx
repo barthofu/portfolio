@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Heading, Text } from '@chakra-ui/react'
+import { Box, Flex, HStack, Heading, Text, useBreakpointValue } from '@chakra-ui/react'
 import { BasicCard, PopBox } from '@components/shared'
 import { extractLocalizedString } from '@core/utils/functions'
 import React from 'react'
@@ -33,7 +33,7 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
                 {/* Line */}
                 <Box 
                     w='50px' h='1px'
-                    bg={`linear-gradient(${isInverted('-90deg', '90deg')},rgba(255, 255, 255, 0.5) 20%,transparent 100%)`}
+                    bg={`linear-gradient(${useBreakpointValue(isInverted('-90deg', '90deg'))},rgba(255, 255, 255, 0.5) 20%,transparent 100%)`}
                     borderRadius='full'
                 />
 
