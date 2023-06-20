@@ -7,10 +7,10 @@
 ## Todo
 
 - [ ] Contact section
-- [ ] Footer
 - [ ] License
 - [ ] Articles
 - [ ] Fill the `README.md` file	
+- [x] Footer
 - [x] Deployment
 - [x] CI/CD
 - [x] Favicon
