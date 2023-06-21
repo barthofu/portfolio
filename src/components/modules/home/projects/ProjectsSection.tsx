@@ -10,7 +10,7 @@ type ProjectsSectionProps = {}
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 
-    const [selectedType, setSelectedType] = React.useState<Tag | null>(null)
+    const [selectedType, setSelectedType] = React.useState<Tag | null>(Tag.Personal)
 
 	return (<>
         <Section title={{

@@ -6,13 +6,6 @@ namespace Content {
         description: LocalizedString
     }
 
-    enum Mastery {
-        Beginner,
-        Intermediate,
-        Advanced,
-        Expert,
-    }
-
     type Technology = {
         /**
          * slugified version of the name
@@ -26,7 +19,7 @@ namespace Content {
         icon: string
         description?: LocalizedString
         url?: string
-        mastery?: Mastery
+        mastery?: import('@content').Mastery
         hidden?: boolean
     }
 
@@ -48,5 +41,11 @@ namespace Content {
         date: LocalizedString
         description: LocalizedString
         technologies?: Technology['id'][]
+    }
+
+    type Contact = {
+        title: LocalizedString
+        icon: import('react-icons').IconType
+        url: string
     }
 }

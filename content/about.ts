@@ -14,7 +14,7 @@ export const about: LocalizedString<true> = {
         `Welcome to my website and enjoy your visit.`
     ],
     fr: [
-        `Salut 👋 Moi c'est Bartholomé, alternant français en informatique tombé amoureux de ce de domaine si passionnant !`,
+        `Salut 👋 Moi c'est Bartholomé, alternant français en informatique tombé amoureux de ce domaine si passionnant !`,
         `Grand victime d'une fièvre créative me poussant constamment vers de nouveaux projets et créations, j'ai exploré le design, le montage et même la musique avant d'élire enfin domicile dans le vaste monde du développement informatique.`,
         `J'aime me définir comme un véritable touche-à-tout dans ce domaine, avec une passion plus particulière pour le web (sous toutes ses formes) qui a su grandir au fil des années.`,
         `Grand prêcheur de la sainte Typesafety apportant autant d'efficiency et que de simplicity (je me permets d'emprunter la langue de Shakespeare pour que cette rime fonctionne 😋). Véritable maniac du Tooling, J'ai à cœur de rendre le développement de n'importe quel projet aussi performant que possible.

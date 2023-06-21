@@ -11,3 +11,6 @@ export * from './projects/Project'
 
 export * from './history/HistorySection'
 export * from './history/HistoryElement'
+
+export * from './contact/ContactSection'
+export * from './contact/ContactItem'

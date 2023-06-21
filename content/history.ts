@@ -9,7 +9,7 @@ export const history: Content.HistoryElement[] = [
             en: 'may 2022 - june 2022',
         },
         description: {
-            fr: "J'ai été placé en totale autonomie sur le site web vitrine de l'entreprise qui représente un enjeu crucial puisque cette dernière n'emploie pas de commerciaux. Il s'agit d'un site web en JAMStack sur lequel j'ai pu réalisé divers missions d'évolutions, de migrations et de refactoring.",
+            fr: "J'ai été placé en totale autonomie sur le site web vitrine de l'entreprise qui représente un enjeu crucial puisque cette dernière n'emploie pas de commerciaux. Il s'agit d'un site web en JAMStack sur lequel j'ai pu réaliser divers missions d'évolutions, de migrations et de refactoring.",
             en: "I was placed in total autonomy on the company's showcase website which represents a crucial issue since the latter does not employ any salespeople. It is a JAMStack website on which I was able to carry out various missions of evolution, migration and refactoring.",
         },
         technologies: ['react', 'gatsby', 'serverless', 'strapi', 'gitlab'],

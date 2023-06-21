@@ -1,7 +1,7 @@
 export enum Tag {
-    School = 'school',
     Personal = 'personal',
     Professional = 'professional',
+    School = 'school',
     Web = 'web',
     Mobile = 'mobile',
     Desktop = 'desktop',
@@ -10,9 +10,9 @@ export enum Tag {
 }
 
 export const tags = [
-    { id: Tag.School, label: { en: 'School', fr: 'Scolaire', } },
     { id: Tag.Personal, label: { en: 'Personal', fr: 'Personnel', } },
     { id: Tag.Professional, label: { en: 'Professional', fr: 'Professionnel', } },
+    { id: Tag.School, label: { en: 'School', fr: 'Scolaire', } },
     { id: Tag.Web, label: 'Web' },
     { id: Tag.Mobile, label: 'Mobile' },
     { id: Tag.Desktop, label: { en: 'Desktop', fr: 'Bureau', } },
