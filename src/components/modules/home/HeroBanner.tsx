@@ -1,10 +1,11 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Link, Text } from '@chakra-ui/react'
 import { ParallaxText } from '@components/shared'
 import React from 'react'
 
 import { subtitle } from '@content'
 import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
+import { CardLayout } from '@components/layouts'
 
 type HeroBannerProps = {}
 
@@ -16,7 +17,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
 
         <Flex 
             flexDirection='column' 
-            alignItems='flex-start' justifyContent='center'
+            alignItems='center' justifyContent='center'
             w='100vw' h={{ base: '40vh', lg: '70vh' }}
             overflowX='hidden'
         >
@@ -57,6 +58,21 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
             >
                 {extractLocalizedString(subtitle, locale)}
             </Text>
+
+            <Link href='#contact' _hover={{ textDecoration: 'none' }} mt='1em'>
+                <CardLayout
+                    p='1em 1.2em'
+                >
+                    <Text
+                        fontFamily='Raleway' fontSize={{ base: '1rem', lg: '1.2rem' }}
+                    >
+                        {extractLocalizedString({
+                            en: 'Contact me',
+                            fr: 'Contactez-moi'
+                        }, locale)}
+                    </Text>                    
+                </CardLayout>
+            </Link>
 
         </Flex>
 

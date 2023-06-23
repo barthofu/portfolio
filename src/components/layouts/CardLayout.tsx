@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, ChakraProps } from '@chakra-ui/react'
 import { useRef, useEffect, MouseEvent, useState } from 'react'
 import { animate, motion, useMotionValue } from 'framer-motion'
 
@@ -7,7 +7,7 @@ const MotionBox = motion(Box)
 type CardLayoutProps = {
     children: React.ReactNode
     glowColor?: string
-} & Rest
+} & ChakraProps
 
 const dampen = 100
 const defaultGlowColor = 'rgba(212, 0, 255, 0.08)'
@@ -24,7 +24,6 @@ export const CardLayout: React.FC<CardLayoutProps> = ({ children, glowColor, ...
     // const [rotateX, setRotateX] = useState(0)
     // const [rotateY, setRotateY] = useState(0)
     
-
     useEffect(() => {
         // glow effect color
         const card = cardRef.current

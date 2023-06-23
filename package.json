@@ -30,7 +30,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-intersection-observer": "^9.4.3",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@chakra-ui/storybook-addon": "^4.0.16",

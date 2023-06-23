@@ -2,6 +2,11 @@ const styles = {
 
     global: (props: any) => ({
 
+        // html
+        'html': {
+            scrollBehavior: 'smooth',
+        },
+
         // body
         'body': {
             padding: 0,
@@ -9,7 +14,7 @@ const styles = {
 	        fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
             fontWeight: 'light',
             backgroundColor: 'background.primary',
-            backgroundImage: 'url(https://kawsar.design/wp-content/uploads/2023/02/BG-Tx-1.svg)'
+            backgroundImage: 'url(https://kawsar.design/wp-content/uploads/2023/02/BG-Tx-1.svg)',
         },
 
         // resets
