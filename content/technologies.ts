@@ -486,5 +486,13 @@ export const technologies: Content.Technology[] = [
         icon: 'https://www.vectorlogo.zone/logos/serverless/serverless-icon.svg',
         url: 'https://serverless.com/',
         mastery: Mastery.Intermediate,
+    },
+    {
+        id: 'nx',
+        name: 'Nx',
+        type: Type.Tool,
+        icon: 'https://ultimatecourses.com/assets/category/nx-6c132a35ad2a671dd3cf042dbbc4e1d941a3c52971b01c9e332b4300dba07df4.svg',
+        url: 'https://nx.dev/',
+        mastery: Mastery.Intermediate,
     }
 ]

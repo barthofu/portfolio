@@ -14,7 +14,7 @@ export const TechnologyIcon: React.FC<TechnologyIconProps> = ({ technology, size
     const locale = useLocale()
 
 	return (<>
-        <Link href={technology.url} zIndex={15} target='_blank'
+        <Link href={technology.url} zIndex='10' target='_blank'
             w={linkWide ? '100%' : 'unset'} display='flex' justifyContent='center'
             _hover={{ textDecoration: 'none' }}
             
@@ -26,6 +26,7 @@ export const TechnologyIcon: React.FC<TechnologyIconProps> = ({ technology, size
                     width={size}
                     maxW={size}
                     alignSelf='center' 
+                    zIndex='10'
                 />
                 :
                 <Text as='i'
@@ -33,6 +34,7 @@ export const TechnologyIcon: React.FC<TechnologyIconProps> = ({ technology, size
                     fontSize={size}
                     color='text.secondary'
                     textAlign='center'
+                    zIndex='10'
                 />
             }
         </Link>

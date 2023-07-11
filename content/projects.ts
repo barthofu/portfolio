@@ -100,5 +100,33 @@ export const projects: Content.Project[] = [
         year: '2023',
         technologies: ['rust', 'rocket', 'diesel', 'typescript', 'svelte', 'storybook'],
         githubUrl: 'https://github.com/soundome',
-    },    
+    },
+    {
+        name: 'Installoop',
+        description: {
+            en: "Recursively install npm dependencies from multiple package.json",
+            fr: "Installe récursivement les dépendances npm à partir de plusieurs package.json",
+        },
+        imageUrl: undefined,
+        tags: [Tag.Personal],
+        status: Status.Completed,
+        year: '2022',
+        technologies: ['typescript', 'nodejs'],
+        githubUrl: 'https://github.com/barthofu/installoop',
+        demoUrl: 'https://npmjs.com/package/installoop'
+    },
+    {
+        name: 'Cucumber',
+        description: {
+            en: "Cucumber est une application de rencontre spécialisée dans le speed dating, qui offre une expérience de rencontre rapide et efficace pour les utilisateurs. Il s'agit d'un projet de groupe réalisé dans le cadre de la Licence Pro DevOps à l'IUT Lyon 1. L'objectif était de réaliser une application native en Java comportant ces caractéristiques au minimum: une base de données, une architecture client/serveur et des sockets",
+            fr: "Application JavaFX et Socket pour un projet scolaire",
+        },
+        imageUrl: undefined,
+        tags: [Tag.School],
+        status: Status.Completed,
+        year: '2023',
+        technologies: ['java'],
+        githubUrl: 'https://github.com/barthofu/cucumber',
+        demoUrl: undefined
+    }
 ]

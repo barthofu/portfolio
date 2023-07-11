@@ -70,7 +70,7 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
 
                     {/* Technologies */}
                     {historyElement.technologies && <>
-                        <HStack mt='1.75em' spacing='1em' zIndex={10} opacity='0.6'>
+                        <HStack mt='1.75em' spacing='1em' zIndex='10' opacity='0.6'>
                             {historyElement.technologies.map((technologyId) => {
 
                                 const technology = technologies.find(t => t.id === technologyId)
@@ -80,6 +80,7 @@ export const HistoryElement: React.FC<HistoryElementProps> = ({ historyElement, 
                                     <TechnologyIcon key={technology.id} 
                                         technology={technology} 
                                         size='1.5em' 
+                                        zIndex='10'
                                     />
 
                                     // <Link href={technology.url} zIndex={10} key={technology.url}>

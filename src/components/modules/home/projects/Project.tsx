@@ -1,143 +1,45 @@
-import { Box, Flex, HStack, Heading, Icon, Image, Link, Text, VStack } from '@chakra-ui/react'
+import { Flex, Heading, Text } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
+import { ProjectLinks, ProjectTechnologies } from '@components/modules'
+import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
 import React from 'react'
-import { BsPlay } from 'react-icons/bs'
-import { FiGithub } from 'react-icons/fi'
-
-import { PopBox } from '@components/shared'
-import { statuses, tags, technologies } from '@content'
-import { useLocale } from '@core/hooks/useLocale'
 
 type ProjectProps = {
     project: Content.Project
-    inverted?: boolean
 }
 
-export const Project: React.FC<ProjectProps> = ({ project, inverted }) => {
+export const Project: React.FC<ProjectProps> = (props) => {
 
+    const { project } = props
     const locale = useLocale()
 
-    const parsedStatus = statuses.find(t => t.id === project.status)
-    const direction = inverted ? 'flex-end' : 'flex-start'
-
 	return (<>
+        <CardLayout h='20em'>
+            {/* Header */}
+            <Flex w='100%' justifyContent='space-between' alignItems='center'>
 
-        <PopBox 
-            position='relative' 
-            display='flex' 
-            justifyContent={direction}
-            w='100%' 
-        >
-
-            <VStack 
-                alignItems={direction}
-                spacing={4} 
-                w='60%'
-            >
-            
-                {/* Heading */}
-                <HStack>
-                    {/* Period */}
-                    {project.year && <Text color='text.secondary'>{project.year}</Text>}
-                    {project.year && project.tags[0] && <Text color='text.secondary'>•</Text>}
-                    {/* Status */}
-                    {parsedStatus && <Text color='text.secondary'>{extractLocalizedString(parsedStatus.label, locale)}</Text>}
-                </HStack>
-
-                {/* Title */}
-                <Flex flexDirection={inverted ? 'row-reverse' : 'row' } alignItems='center'>
-
-                    <Heading as='h3'
-                        fontSize='1.5em'
-                        fontFamily='Raleway'
-                        fontWeight='bold'
-                    >
-                        {extractLocalizedString(project.name, locale)}
-                    </Heading>
-
-                    {/* Tags */}
-                    {project.tags.map(tag => {
-
-                        const parsedTag = tags.find(t => t.id === tag)
-                        if (!parsedTag) return null
-
-                        return <>
-                            <CardLayout
-                                key={parsedTag.id}
-                                mr={inverted ? '1em' : '0'}
-                                ml={inverted ? '0' : '1em'}
-                                fontSize='.9em'
-                                p='.3em .7em'
-                            >
-                                {extractLocalizedString(parsedTag.label, locale)}
-                            </CardLayout>
-                        </>
-                    })}
-
-                </Flex>
-
-                {/* Description card */}
-                <CardLayout>
-                    <Text>{extractLocalizedString(project.description, locale)}</Text>
-                </CardLayout>
-
-                {/* Technologies */}
-                <Flex>
-                    {project.technologies && project.technologies.map((technologyId, index) => {
-                        const technology = technologies.find(t => t.id === technologyId)
-                        if (!technology) return null
-                        return <Text mr='.8em' key={index} color='text.secondary'>{extractLocalizedString(technology.name, locale)}</Text>
-                    })}
-                </Flex>
+                {/* Icon */}
 
                 {/* Links */}
-                <HStack spacing='1em'>
-                    {project.githubUrl &&
-                        <Link href={project.githubUrl} target='_blank'>
-                            <Icon as={FiGithub} fontSize='1.5rem'/>
-                        </Link>
-                    }
-                    {project.demoUrl && 
-                        <Link href={project.demoUrl} target='_blank'>
-                            <Icon as={BsPlay} color='green.400' fontSize='2.5rem' fontWeight='bolder'></Icon>
-                        </Link> 
-                    }
-                </HStack>
+                <ProjectLinks githubUrl={project.githubUrl} demoUrl={project.demoUrl} />
+            </Flex>
 
-            </VStack>
+            {/* Title */}
+            <Heading as='h3'
+                fontSize='1.3em'
+                fontFamily='Raleway'
+                fontWeight='bold'
+            >
+                {extractLocalizedString(project.name, locale)}
+            </Heading>
 
-            {project.imageUrl?.endsWith('.mp4') ?
+            {/* Description */}
+            <Text>{extractLocalizedString(project.description, locale)}</Text>
 
-                <Box as='video'
-                    src={project.imageUrl}
-                    autoPlay
-                    loop
-                    muted
-                    position='absolute'
-                    w='50%'
-                    right={inverted ? 'unset' : 0} left={inverted ? 0 : 'unset'}
-                    top='50%' transform='translateY(-50%)'
-                    zIndex={-1}
-                    borderRadius='10px'
-                />
-                :
-                <Image 
-                    src={project.imageUrl}
-                    alt={extractLocalizedString(project.name, locale)}
-                    position='absolute'
-                    w='50%'
-                    right={inverted ? 'unset' : 0} left={inverted ? 0 : 'unset'}
-                    top='50%' transform='translateY(-50%)'
-                    zIndex={-1}
-                    borderRadius='10px'
-                />
-            }
-
-
-        </PopBox>
-
-
-
+            {/* Technologies */}
+            {project.technologies && <ProjectTechnologies technologies={project.technologies} />}
+            
+        </CardLayout>
     </>)
 }

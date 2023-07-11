@@ -34,6 +34,7 @@ namespace Content {
         githubUrl?: string
         demoUrl?: string
         hidden?: boolean
+        pinned?: boolean
     }
 
     type HistoryElement = {

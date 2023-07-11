@@ -9,7 +9,7 @@ type CardLayoutProps = {
     glowColor?: string
 } & ChakraProps
 
-const dampen = 100
+// const dampen = 100
 const defaultGlowColor = 'rgba(212, 0, 255, 0.08)'
 // Colors panel:
 // 'rgba(255, 255, 255, 0.03)', // blanc

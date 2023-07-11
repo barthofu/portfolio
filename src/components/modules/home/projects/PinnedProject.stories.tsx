@@ -1,14 +1,14 @@
 import { Meta, StoryFn } from '@storybook/react'
 
 import { projects } from '@content'
-import { Project } from './Project'
+import { PinnedProject } from './PinnedProject'
 
 export default {
     title: 'Homepage/Projects/Project',
-    component: Project,
-} as Meta<typeof Project>
+    component: PinnedProject,
+} as Meta<typeof PinnedProject>
 
-const Template: StoryFn<typeof Project> = (args) => <Project {...args} />
+const Template: StoryFn<typeof PinnedProject> = (args) => <PinnedProject {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

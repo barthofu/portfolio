@@ -6,9 +6,9 @@
 
 ## Todo
 
-- [ ] Contact section
 - [ ] Articles
 - [ ] Fill the `README.md` file	
+- [x] Contact section
 - [x] License
 - [x] Footer
 - [x] Deployment
