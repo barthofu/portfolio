@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useTransform, useVelocity, wrap } from 'framer-motion'
 import React, { useRef } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const MotionBox = motion(Box)
 
@@ -72,11 +73,11 @@ export const ParallaxText: React.FC<ParallaxTextProps> = (props) => {
                 whiteSpace='nowrap'
                 flexWrap='nowrap'
             >
-                {Array.from({ length: props.length }, (_, i) => <>
-                    <Box as='div' key={i} display='block' margin-right='30px'>
+                {Array.from({ length: props.length }, _ =>
+                    <Box as='div' key={uuidv4()} display='block' margin-right='30px'>
                         {props.children}
                     </Box>
-                </>)}
+                )}
             </MotionBox>
         </Box>
     </>

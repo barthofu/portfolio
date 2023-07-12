@@ -1,4 +1,4 @@
-import { Icon, Text, Tooltip } from '@chakra-ui/react'
+import { Box, Icon, Text, Tooltip } from '@chakra-ui/react'
 import { CardLayout } from '@components/layouts'
 import { PopBox } from '@components/shared'
 import { useLocale } from '@core/hooks/useLocale'
@@ -38,6 +38,7 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
         <PopBox
             w='100%'
             h='100%'
+            minH='10em'
         >
 
             <CardLayout
@@ -48,24 +49,29 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
             >
 
                 {technology?.mastery !== Mastery.Beginner &&
-                    <Tooltip 
-                        // @ts-ignore
-                        label={extractLocalizedString(masteryLabels[technology.mastery], locale)}
-                        placement='bottom'
-                        bg='background.primary'
-                        color='text.primary'  
+
+                    <Box
+                        position='absolute'
+                        top='1em'
+                        right='1em'
                     >
-                        <span>
-                            <Icon as={TfiMedallAlt} 
-                                fontSize='1.5em'
-                                position='absolute'
-                                top='1em'
-                                right='1em'
-                                color={technology.mastery === Mastery.Intermediate ? '#C0C0C0' : '#FFD700'}
-                                zIndex='10'
-                            />
-                        </span>
-                    </Tooltip>
+                        <Tooltip 
+                            // @ts-ignore
+                            label={extractLocalizedString(masteryLabels[technology.mastery], locale)}
+                            placement='bottom'
+                            bg='background.primary'
+                            color='text.secondary'  
+                            position='absolute'
+                        >
+                            <span>
+                                <Icon as={TfiMedallAlt} 
+                                    fontSize='1.5em'
+                                    color={technology.mastery === Mastery.Intermediate ? '#C0C0C0' : '#FFD700'}
+                                    zIndex='10'
+                                />
+                            </span>
+                        </Tooltip>
+                    </Box>
                 }
                 
                 <Text

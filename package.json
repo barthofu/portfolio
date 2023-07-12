@@ -31,7 +31,8 @@
     "react-icons": "^4.8.0",
     "react-intersection-observer": "^9.4.3",
     "sass": "^1.55.0",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@chakra-ui/storybook-addon": "^4.0.16",
@@ -45,6 +46,7 @@
     "@types/node": "18.11.2",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@types/uuid": "^9.0.2",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
     "plop": "^2.3.0",

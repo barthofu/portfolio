@@ -64,7 +64,7 @@ export const PinnedProject: React.FC<PinnedProjectProps> = ({ project, inverted 
                         const parsedTag = tags.find(t => t.id === tag)
                         if (!parsedTag) return null
 
-                        return <>
+                        return (
                             <CardLayout
                                 key={parsedTag.id}
                                 mr={inverted ? '1em' : '0'}
@@ -74,7 +74,7 @@ export const PinnedProject: React.FC<PinnedProjectProps> = ({ project, inverted 
                             >
                                 {extractLocalizedString(parsedTag.label, locale)}
                             </CardLayout>
-                        </>
+                        )
                     })}
 
                 </Flex>

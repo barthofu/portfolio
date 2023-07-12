@@ -10,7 +10,7 @@ type ProjectsSectionProps = {}
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 
-    const [selectedType, setSelectedType] = React.useState<Tag | null>(Tag.Personal)
+    const [selectedType, setSelectedType] = React.useState<Tag | null>(tags[0].id)
 
     const detailedProjects = projects
         .filter(project => 
@@ -24,7 +24,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
             (selectedType === null || project.tags.includes(selectedType)) 
             && !project.hidden
             && (!project.imageUrl || project.pinned === false)
-        ) 
+        )
+
+    const cardProjectsColumns = useBreakpointValue({ base: 1, md: 2, lg: 3 })
 
 	return (<>
         <Section title={{
@@ -55,13 +57,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 
             <Grid 
                 w='100%' 
-                templateColumns={`repeat(${useBreakpointValue({ base: '1', md: '2', lg: '3' })}, 1fr)`} 
+                templateColumns={`repeat(${cardProjectsColumns}, 1fr)`} 
                 gap='1rem'
-                mt='5rem'
+                mt={cardProjects.length > 0 && detailedProjects.length > 0 ? '5rem' : '0'}
             >
                 {cardProjects
-                    .concat(cardProjects)
-                    .concat(cardProjects)
                     .map(project => 
 
                         <Project

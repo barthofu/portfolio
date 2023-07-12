@@ -2,6 +2,7 @@ import { Button, HStack, Text } from '@chakra-ui/react'
 import { useLocale } from '@core/hooks/useLocale'
 import { extractLocalizedString } from '@core/utils/functions'
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 type FilterProps<T> = {
     data: {
@@ -30,9 +31,9 @@ export const Filter = <T, >(props: FilterProps<T>) => {
             }, locale)}</Text>
             
             <HStack overflowX='auto'>
-                {props.data.map((type, i) =>
+                {props.data.map((type) =>
                     <Button
-                        key={i}
+                        key={uuidv4()}
                         variant='outline'
                         size='sm'
                         minW='auto'

@@ -494,5 +494,13 @@ export const technologies: Content.Technology[] = [
         icon: 'https://ultimatecourses.com/assets/category/nx-6c132a35ad2a671dd3cf042dbbc4e1d941a3c52971b01c9e332b4300dba07df4.svg',
         url: 'https://nx.dev/',
         mastery: Mastery.Intermediate,
+    },
+    {
+        id: 'kotlin',
+        name: 'Kotlin',
+        type: Type.Language,
+        icon: 'https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg',
+        url: 'https://kotlinlang.org/',
+        mastery: Mastery.Beginner,
     }
 ]
