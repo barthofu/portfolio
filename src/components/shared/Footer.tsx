@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = () => {
                     <Text as='i' className='devicon-github-original' ml='.5em' />
                 </Link>
             </Stack>
-            <Text textAlign='center'>Built by Bartholomé Gili using Next.js.<br />Thank you for reading to the end, I hope you enjoyed this website.</Text>
+            <Text textAlign='center'>Built by Bartholomé Gili using Next.js with ❤️<br />Thank you for reading to the end, I hope you enjoyed this website!</Text>
         </VStack>
     </>
 }

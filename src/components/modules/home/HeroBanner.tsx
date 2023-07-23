@@ -18,7 +18,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
         <Flex 
             flexDirection='column' 
             alignItems='center' justifyContent='center'
-            w='100vw' h={{ base: '40vh', lg: '70vh' }}
+            w='100vw' h={{ base: 'unset', lg: '70vh' }}
+            mt='2em'
             overflowX='hidden'
         >
 
@@ -59,7 +60,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
                 {extractLocalizedString(subtitle, locale)}
             </Text>
 
-            <Link href='#contact' _hover={{ textDecoration: 'none' }} mt='1em'>
+            <Link href='#contact' _hover={{ textDecoration: 'none' }} mt='1em' mb='2em'>
                 <CardLayout
                     p='1em 1.2em'
                 >
