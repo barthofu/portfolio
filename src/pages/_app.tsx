@@ -2,7 +2,12 @@ import '@fontsource/raleway/400.css'
 import '@fontsource/peace-sans/400.css'
 import '@fontsource/work-sans'
 import '@fontsource/montserrat'
+import '@fontsource-variable/roboto-slab'
+import '@fontsource-variable/petrona'
+
+import '@styles/main.scss'
 import '@styles/glow.scss'
+
 
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'

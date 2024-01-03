@@ -1,4 +1,5 @@
-import { Container, Flex } from '@chakra-ui/react'
+import { Box, Container, Flex } from '@chakra-ui/react'
+import { Navbar } from '@components/modules'
 import { Locale } from '@content'
 import { LocaleContext } from '@core/contexts/locale'
 import Head from 'next/head'
@@ -27,6 +28,15 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         <LocaleContext.Provider value={{
             locale
         }}>
+
+            <Box
+                position='fixed' 
+                top='2em' 
+                left='2em'
+            >
+                <Navbar />
+            </Box>
+
             <Flex justifyContent='center' px={{ base: '2rem', lg: '5rem' }}>
 
                 <Flex

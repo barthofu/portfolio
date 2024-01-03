@@ -1,0 +1,114 @@
+---
+title: 'Contrats API: avantages, inconvénients et outils'
+date: 30/03/2023
+author: Bartholomé Gili
+authorUrl: https://github.com/barthofu
+coverUrl: https://content.axopen.com/uploads/AXOPEN_Blog_Contrat_API_00847d173d.jpg
+description: Quand la connectivité et l'interopérabilité des SI sont essentielles, les contrats API sont devenus un outil incontournable pour les entreprises. Ces derniers sont des documents qui définissent l'ensemble des fonctionnalités et des données qu'une API expose. On fait le point sur les avantages, inconvénients et outils pour les mettre en place.
+---
+
+Dans un monde où la connectivité et l'interopérabilité des systèmes d'information sont essentielles, **les contrats API sont devenus un outil incontournable pour les entreprises**. Ces derniers sont des documents qui définissent l'ensemble des fonctionnalités et des données qu'une API expose.
+
+Ils permettent une meilleure collaboration entre les équipes de développement et de conception, garantissant ainsi une meilleure qualité des services offerts. Les contrats API sont également bénéfiques pour les clients et les partenaires, car ils offrent une **transparence dans la façon dont l'API est conçue et implémentée**. Ils permettent également de minimiser les risques de non-conformité et de garantir la sécurité des données échangées entre les différentes parties.
+
+## Contrats API : quels avantages ?
+
+### Compréhension et appréhension
+
+Les parties prenantes du contrat savent explicitement quelles sont les attentes de chacun. De plus, un nouveau développeur arrivant sur le projet pourra facilement avoir une vision globale à la fois sur les spécifications et sur leur implémentation réelle.
+
+### Parallélisme
+
+Prenons l’exemple d’une **application web** classique avec un front-end et un back-end. Si un contrat API a été établi en amont, les équipes travaillant sur le front et celles sur le back peuvent totalement développer en parallèle sans se soucier l’une de l’autre, puisque les deux suivent les définitions établies dans le contrat au préalable. 
+
+Des outils de simulation peuvent même être utilisés pour imiter le comportement de l'autre partie en fonction du contrat, ce qui permet par exemple au front-end d’être développé très tôt avant même que le back-end ne soit prêt.
+
+#### Cohérence
+
+Un contrat API renforce une **cohérence et une robustesse** dans le code produit, même si les deux bases de code sont totalement indépendantes l’une de l’autre. Cela permet de développer, d’évoluer et de maintenir le code beaucoup plus rapidement sans perdre en sûreté. Le contrat devient la seule source de vérité quant aux routes et types utilisés à la fois pour le front et pour le back.
+
+#### Sécurité de type (typesafety)
+
+L'un des principaux avantages des contrats API est la **sécurité de type** qu'ils offrent. Les contrats API définissent explicitement les types de données entrantes et sortantes pour chaque méthode, ce qui permet aux développeurs de s'assurer que les données qu'ils manipulent sont correctes. Cela peut grandement réduire les erreurs de programmation et rendre l'API plus sûre et plus fiable. Combiné aux bons outils, on peut atteindre un niveau de sécurité permettant par exemple de mettre le front-end en erreur dès qu’un type de route et/ou d’entrée est modifié sur le back-end.
+
+#### Évolutivité et refactoring
+
+Les contrats API permettent une évolutivité de l'API. Si une fonctionnalité de l'API doit être modifiée ou supprimée, **le contrat peut être mis à jour pour refléter ces changements**. Allié aux bons outils, il devient donc très facile d’effectuer un refactoring afin d’être de nouveau conforme au contrat.
+
+#### Sécurité
+
+Les contrats API peuvent également spécifier des exigences de sécurité telles que l'authentification et l'autorisation des utilisateurs, ainsi que la protection contre les attaques de sécurité courantes telles que les injections SQL et les attaques de déni de service.
+
+#### Gain de temps
+
+Le contrat API faisant office de spécification et devant être établi dans l’idéal avant même la phase de développement d’un projet, plus besoin de se casser la tête à imaginer quelles routes font quoi, tout est écrit et **il ne reste plus qu’à appliquer !**
+
+## Contrats API : quels inconvénients ?
+
+Ce n’est pas vraiment un désavantage, mais plus une contrainte nécessaire pour bénéficier de tout ce que peut offrir un contrat API, à savoir l’insistance sur la phase de conception.
+
+En effet, tout ce qui a été dit précédemment ne peut être mis en oeuvre si et seulement si le contrat API est établi le plus complètement possible lors de la phase de conception et de spécifications. Cela ne veut pas dire qu’il est immuable dès que le dev commence ! Mais **il doit être au maximum complet afin de ne pas induire des refactoring à l’avenir**, même si ces derniers peuvent grandement être facilités.
+
+Il est important de noter cependant que l’on peut faire le choix de ne pas définir de contrat en amont, et le baser à la place sur les routes qui sont faites au fur et à mesure sur le back-end. On perd néanmoins quelques avantages.
+
+## Quels sont les outils des contrats API ?
+
+### OpenAPI
+
+Le “langage” de contrat d’API le plus connu et populaire est **OpenAPI**. Il se présente aux formats _json_ ou _yaml_. Il s’agit ici purement de spécification.
+
+Ainsi, un fichier OpenAPI va contenir différentes informations tel que les **différentes routes** de notre API, les **méthodes avec lesquelles on peut y accéder**, les **paramètres et body attendus en entrée** et les **données renvoyées en sortie**. On peut y définir des schémas (des sortes de classes) réutilisables dans les spécifications, regrouper différentes routes via des tags, préciser le système d’authentification en vigueur au sein de l’API, etc.
+
+### Swagger
+
+Swagger est une suite d’outils implémentant la spécification OpenAPI et permettant de faciliter son utilisation.
+
+Elle est notamment composée de :
+
+- **[Swagger Editor](https://swagger.io/tools/swagger-editor/)** : vous permet de modifier les spécifications OpenAPI en YAML dans votre navigateur et de prévisualiser la documentation en temps réel.
+- **[Swagger UI](https://swagger.io/tools/swagger-ui/)** : collection d’assets HTML, Javascript et CSS qui génèrent dynamiquement une belle documentation à partir d'une API conforme à OpenAPI.
+- **[Swagger Codegen](https://swagger.io/tools/swagger-codegen/)** : permet la génération automatique de bibliothèques de clients API (génération de SDK), de serveurs prêts à l’emploi et de documentation à partir d'une spécification OpenAPI, et ce dans presque n’importe quelle langage !
+- **[Swagger Parser](https://github.com/swagger-api/swagger-parser)** : bibliothèque autonome pour l'analyse des définitions OpenAPI à partir de Java.
+- **[Swagger Core](https://github.com/swagger-api/swagger-core)** : bibliothèques liées à Java pour la création, la consommation et le travail avec des définitions OpenAPI.
+
+### GraphQL
+
+GraphQL, en plus d’être un langage de requête pour les API qui se repose sur le concept de spécifier exactement les données dont on a besoin directement dans la requête, propose un système de schéma qui remplissent le même rôle qu’un contrat API
+
+Un outil intéressant pour travailler avec des API GraphQL est **GraphiQL**. Il s'agit d'un environnement de développement d'API pour tester et explorer des API GraphQL. Il offre une interface Web avec laquelle vous pouvez envoyer des requêtes GraphQL et recevoir des réponses en temps réel. GraphiQL peut également être utilisé pour explorer et documenter des schémas GraphQL.
+
+### gRPC
+
+gRPC est une bibliothèque RPC (Remote Procedure Call) à haute performance et multiplateforme qui utilise un format de données binaire appelé Protobuf (protobuf). Les contrats API sont définis dans des fichiers .proto, qui décrivent les messages qui peuvent être échangés entre un serveur et un client. Les fichiers .proto sont utilisés pour générer du code dans une variété de langages de programmation différents, ce qui permet aux développeurs de créer des clients et des serveurs gRPC dans le langage de leur choix.
+
+Les avantages de gRPC sont nombreux : 
+- communication client-serveur à haute performance
+- prise en charge de la diffusion en continu (streaming)
+- communication bidirectionnelle
+- sécurité et de l'authentification
+- découverte de services, etc…
+
+gRPC est une alternative intéressante aux API HTTP RESTful traditionnelles pour les applications qui ont besoin d'une communication à haute performance.
+
+Il est cependant important de noter que le protocole utilisé n’est pas compatible qu’à partir de l’HTTP/2, ce qui le rend très compliqué à faire fonctionner dans un navigateur web. Cette technologie sera donc préférée dans de la communication entre différents back-end, et est très avantageuse [dans le contexte des micro services](https://www.axopen.com/architecture-micro-services/) par exemple ! Il existe cependant un fork maintenu par Twitch et appelé twirp, qui est compatible HTTP/1.1 au prix de quelques fonctionnalités.
+
+### tRPC
+
+tRPC est également une bibliothèque RPC, spécialisée dans les projets utilisant **[TypeScript](https://www.axopen.com/developpement-typescript-lyon/)** (un superset rajoutant des types à la compilation au JavaScript) à la fois pour le front-end et le back-end.
+
+On s’éloigne un peu de la notion de “contrat API” ici puisque cette technologie ne passe par aucun contrat API à proprement parler. En effet, le code front-end va directement consommer les types des routes du code back-end, le tout sans passer non plus par de la génération de code.
+
+Un exemple assez parlant, avec à gauche le code côté serveur et à droite celui côté client :
+
+![contrat api développement application web](https://content.axopen.com/uploads/Contrat_API_14ab382d80.gif)
+
+Cela permet d’avoir une sécurité de type bout-en-bout (e2e typesafety) en temps réel entre le back-end et le front-end.
+
+À noter cependant qu’au niveau du versioning, cette technologie nécessite d’utiliser un paradigme monorepo.
+
+## Pour conclure sur les contrats API
+
+En rédigeant un contrat API clair et précis, les entreprises peuvent s'assurer que les développeurs utiliseront l'API de manière cohérente, ce qui permettra d'éviter les erreurs et les incompatibilités. De plus, les contrats API peuvent également aider à gérer les risques et à protéger la propriété intellectuelle de l'entreprise en établissant des conditions d'utilisation claires pour l'API.
+
+À l'heure actuelle, il est difficile d'imaginer un projet de développement d'API sans avoir recours à un contrat API. Les avantages en matière de cohérence, de sécurité et de maintenabilité sont trop importants pour être ignorés. Il est donc crucial de prendre le temps de bien spécifier les besoins et les attentes de l'API dès le début du projet, ou alors de mettre en place a minima un système de sécurité de type bout-en-bout aidant grandement le développement et rendant le code plus robuste.
+

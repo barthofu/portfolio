@@ -1,0 +1,327 @@
+---
+title: Next.js, le web autrement
+date: 01/06/2022
+author: Bartholomé Gili
+authorUrl: https://github.com/barthofu
+coverUrl: https://content.axopen.com/uploads/AXOPEN_Blog_Next_JS_afc16348fe.jpg
+description: Zoom sur Next.js, l'étoile montante des frameworks JavaScript 
+---
+
+**[Next.js](https://nextjs.org/)** est un framework [React](https://www.axopen.com/react-lyon/) open source, orienté Server Side Rendering. 
+
+Créé en 2016 par l’entreprise Vercel, anciennement Zeit, il permet de créer des **applications web multi-plateformes performantes sans négliger le SEO**. 
+
+Porte étendard de la **[JAMStack](https://jamstack.org/)**, faisons tout d’abord un *bref* point historique afin de comprendre sa puissance et son utilité dans un monde où les problématiques inhérentes au web sont de plus en plus complexes.
+
+## Un peu d’histoire : d'où vient Next.js
+
+Alors qu’aujourd’hui, la sphère *front-end* est inondée par des frameworks prônant tous des applications dites “**Single Page Application”** (ou *SPA* pour les intimes), il n’en a pas toujours été ainsi !
+
+Pour comprendre l’intérêt de Next.js, il faut tout d’abord retracer l’évolution du web et de la manière de concevoir des sites.
+
+## Le statique, l’origine de tout
+
+Au tout début du web, il n’y avait que des documents avec des liens entre eux. Quand un client effectuait une requête, le serveur cherchait sur son disque le fichier HTML statique correspondant à la requête, puis le renvoyait.
+
+Chaque utilisateur allait vivre la même expérience.
+
+![web statique](https://content.axopen.com/uploads/Next_js_1_039482ffe8.png)
+
+### Une évolution rapide vers le SSR
+
+Peu après, les serveurs ont été capables de pré-traiter le fichier HTML en fonction de la requête et de ce qu’elle contenait. 
+
+On appelle ça le **Server Side Rendering (SSR)**, et cela a permis de personnaliser l’expérience pour chaque utilisateur. On pouvait maintenant renvoyer du HTML adapté à des paramètres récupérés depuis la requête de l’utilisateur (cookies, header d’authentification, etc).
+
+Ce fut une grande avancée, mais au final, les pages étaient toujours statiques pour l’utilisateur final.
+
+![SSR](https://content.axopen.com/uploads/Next_JS_1_a6749d3c5b.png)
+
+## L’arrivée du JS
+
+En 1996, le [JavaScript](https://www.axopen.com/developpement-javascript-et-expertise-a-lyon/), langage à la source de nombreuses polémiques, fait son arrivée fracassante.
+
+C’était un pas dans la bonne direction, mais sa sortie rushée le laissant plein de failles et d’incohérences aura été un grand frein.
+
+Par ailleurs, le langage n’était, à ses débuts, utilisé uniquement à but gadget, pour faire des jolies pop-ups ou animations.
+
+Mais sa nature même, à savoir un langage de scripting pouvant interagir directement avec le navigateur et le HTML, ne le présageait qu’à devenir de plus en plus important.
+
+## Ajax, le messie
+
+C’est avec l’arrivée d’Ajax en 1999 que tout a changé. Il a offert la possibilité au JavaScript d’effectuer des requêtes HTTP. Le front-end pouvait maintenant envoyer et recevoir des données avec le serveur, sans avoir à rafraichir la page courante !
+
+Cette nouvelle fonctionnalité a lancé une nouvelle ère d’[**applications web riches et dynamiquement générées.**](https://www.axopen.com/developpement-application-web-lyon/)
+
+Couplée à d’autres corrections et ajouts du langage JavaScript, le web devenait de plus en plus viable en tant que plateforme d’applications.
+
+## React
+
+Les années ont passé et de nombreux frameworks ont été développés tels que [Angular](https://www.axopen.com/expertise-angular-lyon/), [Vue.js](https://www.axopen.com/developpement-vue-js-et-expertise-a-lyon/) ou encore [React](https://www.axopen.com/react-lyon/). C’est ce dernier qui va tout particulièrement nous intéresser puisque **Next.js** est basé dessus.
+
+React a fait de la vue de l’application une fonction de son état.
+
+> View = fn(State)
+> 
+
+On n’a plus qu’à s’occuper de *l’état* de l’application, et React s’occupe du reste !
+
+Mais là où ça devient vraiment intéressant, c’est que tout ce système est encapuslé dans une API dite de “*composants*”. Afin d’écrire ces fameux composants, un nouveau pseudo langage appelé *JSX* a été développé, permettant d’écrire de l’HTML directement dans un fichier JavaScript.
+
+Le grand désavantage de React est qu’il a été concu comme un framework *unopinionated* (sans opinion). Cela veut signifie que React a très peu d’opinions sur comment une application doit être développée, et ne propose pas beaucoup d’outils ni de base pour y arriver. Autant dire que **malgré sa puissance, c’était un enfer d’écrire une application complexe et robuste**. De plus, il fallait gérer soi-même des librairies tierces de bundling, de post et pre processing de CSS, etc.
+
+## Create React App
+
+Create React App (ou CRA) a été créée par une équipe de Facebook afin de répondre précisément à cette problématique. **Il n’était plus question de configurer son application, mais de la développer réellement**, relayant toute cette partie complexe et chronophage à CRA.
+
+On obtient, à l’aide d’une simple commande, une application *production ready* qui n’attend qu’à être développée.
+
+## Single Page Application
+
+Grandement démocratisée par **Angular**, **CRA**, **Vue.js**, etc... la conception Single Page Application (SPA) d’une application web veut mettre un terme à l’époque où le client envoyait une requête au serveur à chaque fois qu’il visitait une nouvelle page.
+
+Pour ce faire, le serveur va envoyer toute l’application ou presque sous forme de JavaScript à la première requête du client, accompagnée d’un fichier HTML vide. Tout va ensuite être géré côté client à l’aide du JS, qui va s’occuper d’hydrater l’application (c’est-à-dire de construire la DOM à partir de sa propre DOM virtuelle, représentant l’état actuel de l’application), de faire le système de routing permettant de naviguer entre différentes pages, etc.
+
+Le tout donne une impression d’application native bien plus poussée, et crée une expérience utilisateur sans précédent, tout en réduisant drastiquement la charge des serveurs.
+
+![Next js 2](https://content.axopen.com/uploads/Next_js_2_b701c9d12e.png)
+
+Toutefois, ce seul avantage vient au prix de nombreux problèmes :
+
+- Le bundle renvoyé par le serveur à la première requête peut rapidement devenir énorme et rend l’expérience utilisateur beaucoup trop dépendante de leur débit de connexion internet.
+- L’HTML initialement envoyé par le serveur est absolument vide, rendant très complexe un bon référencement (SEO).
+- Les performances sont grandement impactées côté client.
+
+**Les SPA sont intéressantes dans certains cas, mais pas forcément dans d’autres**. Et c’est là que le bât blesse. Leur normalisation les a amenées au devant de scènes et de projets qui ne sont pas faits pour.
+
+On en oublierait presque l’historique de notre très cher web et de l’évolution pas à pas de notre conception des applications web !
+
+Tous les différents modes de rendus cités précédemment ont leur avantages et désavantages. C’est donc dommage de devoir en choisir un seul pour la création d’une application web complexe...
+
+# Next.js
+
+... d’où l’interêt et la puissance de Next.js !
+
+**Ce framework offre une flexibilité totale sur la conception et la création d’une application web, tout en pouvant s’adapter à la réalité d’internet.**
+
+En effet, tous les différents modes de rendus évoqués dans la partie précédente sont pris en charge par Next, et de manière hybride en plus !
+
+Concrètement, cela veut dire que certaines pages de l’application peuvent être rendues côté serveur à chaque requête (ex : espace personnel après authentification), d’autres peuvent être générées au moment de la compilation (ex: une page présentation de l’entreprise), tout en gardant le rendu côté client inhérent à React.
+
+Ok, ça a l'air génial. Mais comment est-ce possible ?
+
+## Routage
+
+Commençons par la base des bases : le routage.
+
+En effet, avec Next plus besoin de se prendre la tête avec la gestion des routes ou d’utiliser un routeur React côté client !
+
+Chaque **page** (*route)* est un composant React exporté depuis un fichier `.js`, `.jsx`, `.ts` ou `.tsx` dans le répertoire `/pages` de votre projet. Chaque page est associée à une route en fonction de son nom de fichier.
+
+![Routage.png](https://content.axopen.com/uploads/Routage_2bd0794600.png)
+
+Par exemple, si l’on crée un fichier pages/about.js qui exporte un composant React comme ci-dessous, il sera accessible à /about.
+
+```javascript
+export function About() {
+  return <div>About</div>
+}
+
+export default About
+```
+
+Next.js supporte également le **routage dynamique**.
+
+Par exemple, si l’on crée un fichier `/pages/posts/[id].js`, alors il sera accessible à `posts/1`, `posts/2`, etc...
+
+## Modes de rendus
+
+C’est là que le framework prend tout son sens.
+
+Next.js propose différents modes et options de rendus, et ce, de manière totalement hybride.
+
+### Static Generation (SSG)
+
+Par défaut, toutes les pages sont considérées comme **statiques**, c’est-à-dire que l’HTML est généré au moment du *build* et sera réutilisé à chaque requête.
+
+On peut éventuellement y injecter des données externes qui seront récupérées au moment du build en exportant la fonction `getStaticProps()` dans le fichier même de la page. Cette fonction doit retourner un objet avec la propriété `props`, dans laquelle on met toutes les données que l’on veut passer à notre composant React.
+
+Exemple d’une page statique avec récupération de données :
+
+```javascript
+export function Articles({ articles }) {
+  return (
+		<ul>
+			{articles.map(article => (
+				<li>{article.title}</li>
+			))}
+		</ul>
+	)
+}
+
+export async function getStaticProps() {
+	
+	// on récupère les données depuis une source externe
+	const res = await fetch('https://.../articles')
+	const articles = await res.json()
+	
+	return {
+		props: {
+			articles
+		}
+	}
+}
+
+export default About
+```
+
+*Il est intéressant de noter que cette manière de récupérer de la donnée via une fonction est beaucoup plus flexible et “unopinionated” que d’autres frameworks du style tel que Gatsby.*
+
+Les pages statiques peuvent ensuite facilement être distribuées via un CDN.
+
+### Server-side Rendering (SSR)
+
+Avec le rendu côté serveur, l’HTML est généré à chaque *requête.* On peut donc l’adapter en fonction des paramètres inscrits dans cette dernière.
+
+Pour qu’une page se génère en mode SSR, il suffit de faire la même chose qu’avec la génération statique sauf que la fonction s’appelle `getServerSideProps` au lieu de `getStaticProps`.
+
+### Incremental Static Regeneration (ISR)
+
+Maintenant, imaginons qu’on ait une page dont les données externes changent de temps à autre, mais pas assez régulièrement pour justifier un rendu côté serveur au moment de la requête. **Et bien l’ISR est là pour vous sauver !**
+
+Il s’agit tout simplement d’un rendu statique comme vu précédement, sauf que l’on va venir vérifier à nouveau si les données externes ont changé durant un intervalle de temps choisie. Si c’est le cas, alors la page sera re-générée de manière statique et la nouvelle version sera renvoyée à l’utilisateur à l’origine de la requête et à tous les futurs utilisateurs. 
+
+Cela provoque un temps de chargement de la page un poil plus long pour le premier utilisateur, mais qui est à relativiser face à tous les avantages que cette technique propose.
+
+De plus, depuis la version `12.1` de Next.js, cette “revalidation” de la donnée est faisable sur demande, avec une simple requête `get` sur un endpoint du site.
+
+Concrètement, la revalidation automatique se traduit comme suit :
+
+```javascript
+export function Articles({ articles }) {
+  return (
+		<ul>
+			{articles.map(article => (
+				<li>{article.title}</li>
+			))}
+		</ul>
+	)
+}
+
+export async function getStaticProps() {
+	
+	// on récupère les données depuis une source externe
+	const res = await fetch('https://.../articles')
+	const articles = await res.json()
+	
+	return {
+		props: {
+			articles
+		},
+		// Next.js va essayer de re-génerer la page :
+		// - quand une requête rentre
+		// - au maximum une fois toutes les 10 secondes
+		revalidate: 10 // en secondes
+	}
+}
+
+export default About
+```
+
+### Client-side Rendering (CSR)
+
+Enfin, le rendu côté client si cher à notre React adoré est bien entendu de la partie, puisque Next.js va **tout simplement rendre une application React** au final.
+
+Ainsi, les requêtes depuis l’intérieur d’un component seront considérées comme *client-side.*
+
+Pour rendre une page statique tout en conservant des fonctionnalités dynamiques, il suffit donc d'éviter d'utiliser `getServerSideProps` et d'utiliser une bibliothèque comme [SWR](https://swr.vercel.app/) qui permet de récupérer facilement des données du côté client plutôt que du côté serveur.
+
+```javascript
+import useSWR from 'swr' 
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
+export function Articles() {
+
+	const { data, error } = useSWR('https://.../articles', fetcher)
+
+	if (error) return <p>Une erreur est survenue.</p>
+  if (!data) return <p>Chargement...</p>
+  
+	return (
+		<ul>
+			{data.articles.map(article => (
+				<li>{article.title}</li>
+			))}
+		</ul>
+	)
+}
+```
+
+### Incremental Static Generation (ISG)
+
+*"Mais qu'en est-il des pages comme `/products/:productid` ? Comment ces pages peuvent-elles être générées de manière statique ? Ne devrions-nous pas générer des pages statiques pour tous les produits possibles au moment de la construction ? Et si nous ajoutons d'autres produits ? "*
+
+Ce sont d'excellentes questions, et Next.js a une excellente réponse : la **génération statique incrémentale**.
+
+La première fois qu'une page est demandée, Next.js peut faire une demande au serveur pour rendre la page, mais aussi enregistrer une copie statique de la réponse et la distribuer aux CDN.
+
+Ainsi, la première fois que quelqu'un consulte un produit, le rendu sera un peu lent, mais il sera instantané pour toutes les autres personnes qui consulteront ce produit par la suite.
+
+Regardez cette [démo](https://static-tweet.vercel.app/) pour voir l’ISG en action !
+
+## API
+
+**Next.js propose également une solution pour construire sa propre **API** totalement intégrée à l’application.** Cela peut s’avérer très utile par exemple pour un système d’authentification, où le serveur Next.js va servir de proxy entre les services externes et notre application front-end.
+
+Tout fichier situé dans le dossier `pages/api` est mappé sur `/api/*` et sera traité comme un *endpoint* d'API au lieu d'une page. Ce sont des paquets côté serveur uniquement et ils n'augmenteront pas la taille de votre paquet côté client.
+
+Par exemple, la route API suivante `pages/api/user.js` renvoie une réponse *json* avec un code d'état de `200` :
+
+```javascript
+export default function handler(req, res) {
+	res.status(200).json({nom : 'John Doe' })
+}
+```
+
+Pour qu'une route API fonctionne, il faut exporter une fonction par défaut (aussi `handler`), qui reçoit ensuite les paramètres suivants :
+
+- `req` : Une instance de http.IncomingMessage, ainsi que quelques éléments intermédiaires préconstruits.
+- `res` : Une instance de http.ServerResponse, plus quelques fonctions d'aide.
+
+## Optimisation des images
+
+Le composant Next.js **Image**, `next/image`, est une extension de l'élément HTML, évoluée pour le web moderne. Il comprend une variété d'optimisations des performances pour vous aider à obtenir de bons Core Web Vitals. Ces scores sont une mesure importante de l'expérience utilisateur sur votre site Web et sont **pris en compte dans les classements de recherche de Google**.
+
+Voici quelques-unes des optimisations intégrées dans le composant **Image** :
+
+- **Amélioration des performances** : utilisez toujours une image de taille correcte pour chaque appareil, en utilisant des formats d'image modernes.
+- **Stabilité visuelle** : prévention automatique du décalage cumulatif de la mise en page (CLS). [Notre retour d'expérience avec Gatsby par ici !](https://www.axopen.com/blog/2022/03/Gatsby-CLS)
+- **Chargement plus rapide des pages** : les images ne sont chargées que lorsqu'elles entrent dans la fenêtre d'affichage, avec des espaces réservés facultatifs pour le flou de chargement.
+- **Flexibilité des ressources** : redimensionnement des images à la demande, même pour les images stockées sur des serveurs distants.
+
+## Et bien d’autres !
+
+Next.js comprend bien d’autres fonctionnalités comme le système de **Layouts**, le **Hot Module Replacement**, le support *out-of-the-box* de **Typescript**, des **Middlewares** pour la partie API, etc.
+
+# Next.js vs Gatsby
+
+Grand concurrent de Gatbsy, les deux ont des avantages et des désavantages l’un par rapport à l’autre.
+
+D’un côté, Gatsby propose **une bibliothèque de plugins conséquente** permettant de créer une application totalement statique très rapidement.
+
+De l’autre, Next.js va se situer dans une démarche beaucoup plus axée sur le *sans opinion*, notamment pour ce qui est récupération de données externes, et avec une **flexibilité de mode de rendu** que Gatsby ne propose pas, ou en tout cas ne propose pas entièrement et durablement.
+
+De plus, son arbre de dépendances est bien moindre comparé à celui de Gatsby, le rendant plus facilement maintenable, stable, *[green](https://www.axopen.com/blog/2022/04/green-it)* et économique !
+
+_Seulement 20 dépendances pour Next.js…_
+![dépendances next.js](https://content.axopen.com/uploads/Nextjs_8a95ba22b1.png)
+
+_… contre plus de 1300 pour Gatsby._
+![dépendances gatsby](https://content.axopen.com/uploads/Gatsby_8c087ad37f.png)
+
+# Conclusion
+
+Next.js, étoile montante des frameworks front-end JavaScript, offre une flexibilité incomparable et des solutions solides pour des problématiques web d’actualité, que ce soit en terme de SEO, de performances client/serveur ou de coût de développement.
+
+Cette techno vous intéresse pour l'un de vos projets ? On sera ravis d'en discuter avec vous ! **[Pour cela, RDV par ici !](https://www.axopen.com/contact/)**

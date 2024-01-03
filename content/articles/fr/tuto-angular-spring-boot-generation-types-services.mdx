@@ -1,0 +1,194 @@
+---
+title: Générer ses types et services clients Angular à partir d'une application Spring Boot
+date: 12/04/2023
+author: Bartholomé Gili
+authorUrl: https://github.com/barthofu
+coverUrl: https://content.axopen.com/uploads/AXOPEN_Blog_Tuto_Generation_Services_Clients_Types_Angular_Spring_Boot_7c6883b1c5.jpg
+description: Un tuto pas à pas pour générer ses types et services clients Angular à partir d'une application Spring Boot.  
+---
+
+Vous cherchez un moyen facile de partager vos types (modèles, DTOs, controllers, etc) entre une application Angular et une application Spring Boot ? Vous êtes au bon endroit !
+
+Ce que nous allons réaliser dans ce petit tutoriel s'appelle de la “End-to-end (e2e) typesafety”, traduisible par “Sécurité de type bout-en-bout”.
+
+Lorsque l'on parle de cela, on fait référence à la sécurité de type qui est assurée de bout en bout, c'est-à-dire de l'interface utilisateur de l'application (dans notre cas, Angular) jusqu'à la couche d'accès aux données de l'application (ici, Spring Boot). L'objectif est de garantir la cohérence et la compatibilité des types utilisés entre les différentes couches de l'application. C'est parti !
+
+Si les types ne sont pas cohérents entre les différentes couches de l'application, cela peut entraîner des erreurs et des bugs difficiles à identifier et à corriger. En outre, cela peut rendre le développement plus fastidieux et plus lent, car les développeurs doivent constamment traduire les types d'une couche à l'autre.
+
+La sécurité de type bout-en-bout peut aider à éviter ces problèmes en s'assurant que les types sont cohérents et compatibles entre les différentes couches de l'application.
+
+Il s'agit d'un réel avantage assurant à la fois une vitesse de développement accrue couplée à une robustesse de code bien plus importante.
+
+## Les résultats du tutoriel 
+
+Dans ce tutoriel, nous allons mettre en place un système qui va :
+
+1. Générer automatiquement une spécification OpenAPI 3.0 à partir d'une application [Spring Boot](https://spring.io/projects/spring-boot). Tous ses controllers, modèles d'entrées et de sorties de chaque route seront inclus dans la spécification.
+2. Récupérer cette spécification dans le code de notre application [Angular](https://angular.io/)
+3. Générer les types [TypeScript](https://www.typescriptlang.org/) à partir de cette spécification
+
+Vous l'aurez compris, avec cette technique on se base sur le back-end comme seule source de vérité. Cela n'implique donc pas de définir un [contrat API](https://bartho.dev/fr/articles/contrats-api/) mutualisé en amont du développement, rendant la chose plus flexible. 
+
+Ici, le front-end va s'accorder automatiquement sur ce qui est déclaré au niveau du back-end.
+
+### Étape 1 - Génération spécification OpenAPI 3.0
+
+Cette étape va être relativement facile puisqu'il s'agit simplement d'une librairie officielle Spring à ajouter dans ses dépendances Maven ou Gradle.
+
+→ [La librairie en question](https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui) 
+
+Exemple avec Maven et son pom.xml:
+
+```xml
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.0.4</version>
+</dependency>
+```
+Il vous suffit ensuite de recharger les dépendances et de démarrer votre application, et vous pourrez voir le magnifique Swagger à l'adresse _http://server:port/context-path/swagger-ui.html_ et le plus important, la spécification OpenAPI au format yaml à l'adresse _http://server:port/context-path/v3/api-docs.yaml._
+
+### Étape 2 - Récupération côté Angular
+
+Nous allons maintenant créer un script dans notre projet Angular qui va s'occuper de télécharger cette spécification localement.
+
+1. Rendez-vous dans la racine de votre projet
+2. Créez un fichier ```scripts/fetch_spec.mjs```
+3. Copiez y le code suivant:
+    ```javascript
+    import fetch from 'node-fetch'
+    import fs from 'fs/promises'
+
+    const options = {
+      baseUrl: 'http://localhost:8080/api',
+      output: 'api-docs.yaml'
+    }
+
+    /**
+     * Download the OpenAPI spec file from the API
+    * (it must be running when this script is executed!)
+    * and save it to the file system
+    */
+    async function downloadOpenApiSpec() {
+
+      try {
+        const response = await fetch(options.baseUrl + '/v3/api-docs.yaml')
+        const data = await response.text()
+
+        await fs.writeFile(options.output, data)
+        console.log('Spécification OpenAPI de l\'API téléchargée avec succès.')
+      } catch (e) {
+        console.error(e.message)
+      }
+    }
+
+    downloadOpenApiSpec()
+    ```
+Vous pouvez maintenant télécharger la spécification OpenAPI de votre back-end Spring Boot, **pour peu que celui-ci tourne en même temps sur votre machine !**
+
+### Étape 3 - Génération TypeScript
+
+Pour cette dernière partie, nous allons encore une fois créer un script JavaScript dans notre projet, qui utilisera la superbe librairie ```npm ng-openapi-gen```.
+
+Cette librairie génère automatiquement les interfaces des différents modèles présents dans la spécification OpenAPI, ainsi que des services client web pour effectuer des requêtes de manière totalement typée et au travers de fonctions (une fonction correspond à un endpoint d'un controller Spring). **Tout ceci est inclus dans un ngModule afin d'être bien séparé du reste de votre code.**
+
+1. Installez les librairies nécessaires en dev-only : `npm install -D ng-openapi-gen json-schema-ref-parser js-yaml node-fetch`
+2. Créez un deuxième script : ```scripts/gen.mjs```
+3. Copiez-y le code suivant : 
+    ```javascript
+    import $RefParser from 'json-schema-ref-parser'
+    import { NgOpenApiGen } from 'ng-openapi-gen'
+
+    const options = {
+      input: 'api-docs.yaml',
+      output: 'src/app/api',
+    }
+
+    /**
+     * Generate Angular API module from the OpenAPI spec file
+    */
+    async function generateAngularApiModule() {
+
+      // load the openapi-spec and resolve all $refs
+      const RefParser = new $RefParser()
+      const openApi = await RefParser.bundle(options.input, {
+        dereference: { circular: false }
+      })
+
+      const ngOpenGen = new NgOpenApiGen(openApi, options);
+      ngOpenGen.generate()
+
+      console.log('Module Angular généré avec succès.')
+    }
+
+    generateAngularApiModule()
+    ```
+4. Ajoutez le script suivant dans le fichier ```package.json``` :
+    ```json
+    "scripts": {
+        //...
+        "update:api": "node scripts/fetch_spec.mjs && node scripts/gen.mjs",
+        "postinstall": "patch-package"
+      },
+    ```
+
+### Étape 4 - Ajustements
+
+#### Dates
+
+**Seul hic avec cette librairie** : les dates ne sont pas considérées du type Date mais en tant que string dans les interfaces de modèle générées.
+
+Nous pouvons régler ça à l'aide de la très pratique ```librairie patch-package``` !
+
+1. Rendez-vous dans le fichier `node_modules/ng-openapi-gen/lib/gen-utils.js` à peu près à la ligne `260`
+2. Juste avant le `return`, rajoutez ce bout de code:
+    ```javascript
+    // A date
+    if (type === 'string' && schema.format === 'date-time') {
+      return 'Date';
+    }
+    ```
+3. Sauvegardez le fichier
+4. Exécutez la commande suivante : `npx patch-package ng-openapi-gen`
+5. `git add` et `git commit` le fichier nouvellement créé dans le dossier `patches`
+6. Installez la librairie patch-package en dev only: `npm install -D patch-package`
+7. Ajoutez le script suivant dans le fichier `package.json` :
+    ```json
+    "scripts": {
+        //...
+        "postinstall": "patch-package"
+    },
+    ```
+
+#### Content-type
+
+Pour pouvoir utiliser les services clients auto-générés afin de faire nos requêtes sur l'API, il vaut mieux que le type de retour des contrôleurs dans l'application Spring Boot soient définis, surtout ceux qui sont censés retourner du **JSON**.
+
+Pour se faire, il suffit de rajouter une valeur à l'annotation `@RequestMapping` d'une classe contrôleur.
+Ex :
+```java
+@RequestMapping(value = "/user", produces = "application/json")
+```
+
+## Workflow
+
+Maintenant que tout est setup correctement, on peut commencer à travailler avec ce nouveau système !
+
+Concrètement, à chaque fois que vous allez modifier/ajouter/supprimer une route sur votre application Spring Boot ou un modèle utilisé en paramètre d'entrée ou en sortie, vous n'aurez qu'à effectuer la commande Workflow
+
+Maintenant que tout est setup correctement, on peut commencer à travailler avec ce nouveau système !
+
+Concrètement, à chaque fois que vous allez modifier/ajouter/supprimer une route sur votre application Spring Boot ou un modèle utilisé en paramètre d'entrée ou en sortie, vous n'aurez qu'à effectuer la commande `npm run update:api` dans le projet Angular afin de mettre à jour les types et services auto-générés. 
+
+:::warning
+Gardez bien en mémoire que l'application Spring Boot doit être démarrée au moment où vous exécutez la commande.
+:::
+
+Vous avez maintenant la possibilité d'utiliser directement les interfaces des modèles dans votre code, et surtout d'utiliser les différents services clients autogénérés !
+
+Un service correspond à un fichier controller de votre application Spring Boot, et ce même service contient une méthode par route afin de l'appeler tout en ayant un retour déjà typé avec le bon modèle.
+
+Enfin, n'hésitez pas à vous renseigner sur la documentation de ng-openapi-gen ([accessible par ici](https://github.com/cyclosproject/ng-openapi-gen)) pour savoir comment customiser les templates servant de base aux fichiers auto-générés, passer des headers et customiser les requêtes faites dans les services clients web, etc.
+
+Ce système, relativement simple à mettre en place, offre tellement d'avantages qu'il serait dommage de ne pas en bénéficier !

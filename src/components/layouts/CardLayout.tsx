@@ -67,11 +67,13 @@ export const CardLayout: React.FC<CardLayoutProps> = ({ children, glowColor, ...
             position='relative'
             className='card'
             onMouseMove={(handleMouseMove)}
-            onHoverEnd={() => {
-                // setRotateX(0)
-                // setRotateY(0)
-            }}
             ref={cardRef}
+            _before={{
+                pointerEvents: 'none',
+            }}
+            _after={{
+                pointerEvents: 'none',
+            }}
             {...rest}
         >
             { children }
