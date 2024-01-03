@@ -9,7 +9,7 @@ type HistorySectionProps = {}
 
 export const HistorySection: React.FC<HistorySectionProps> = () => {
 
-	return (
+    return (
 
         <Section title={{
             en: 'Experiences',
@@ -21,7 +21,7 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
                 display='flex'
                 w='100%'
             >
-        
+
                 <Box my='10em'></Box>
 
                 {/* Line */}
@@ -33,17 +33,17 @@ export const HistorySection: React.FC<HistorySectionProps> = () => {
 
                 {/* Elements */}
                 <Flex flexDir='column' w='100%' mt='5em'>
-                    {history.map((historyElement, index) =>
-                        <HistoryElement 
-                            key={extractLocalizedString(historyElement.title, 'en')} 
-                            historyElement={historyElement} 
-                            inverted={index % 2 === 0} 
+                    {[...history].reverse().map((historyElement, index) =>
+                        <HistoryElement
+                            key={extractLocalizedString(historyElement.title, 'en')}
+                            historyElement={historyElement}
+                            inverted={index % 2 === 0}
                         />
                     )}
                 </Flex>
-                    
+
             </Box>
-        
+
         </Section>
     )
 }

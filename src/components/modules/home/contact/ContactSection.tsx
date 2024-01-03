@@ -1,5 +1,4 @@
-import { HStack, Icon, Link, Stack } from '@chakra-ui/react'
-import { CardLayout } from '@components/layouts'
+import { Grid } from '@chakra-ui/react'
 import { Section } from '@components/shared'
 import { contacts } from '@content'
 import React from 'react'
@@ -9,16 +8,20 @@ type ContactSectionProps = {}
 
 export const ContactSection: React.FC<ContactSectionProps> = () => {
 
-	return (<>
+    return (<>
         <Section
             title={'Contact'}
         >
 
-            <Stack direction={{ base: 'column', lg: 'row'}} justifyContent='center' w={{ base: 'auto', lg: '100%' }} spacing='2em'>
+            <Grid
+                w='100%'
+                gap='1em'
+                templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }}
+            >
                 {contacts.map((contact, index) => (
                     <ContactItem contact={contact} key={index} />
                 ))}
-            </Stack>
+            </Grid>
         </Section>
     </>)
 }
