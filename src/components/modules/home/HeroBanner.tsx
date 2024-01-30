@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Link, Text } from '@chakra-ui/react'
 import { ParallaxText } from '@components/shared'
 import React from 'react'
 
@@ -60,20 +60,37 @@ export const HeroBanner: React.FC<HeroBannerProps> = () => {
                 {extractLocalizedString(subtitle, locale)}
             </Text>
 
-            <Link href='#contact' _hover={{ textDecoration: 'none' }} mt='1em' mb='2em'>
-                <CardLayout
-                    p='1em 1.2em'
-                >
-                    <Text
-                        fontFamily='Raleway' fontSize={{ base: '1rem', lg: '1.2rem' }}
+            <HStack mt='1em' mb='2em' spacing='1em'>
+
+                <Link href='#contact' _hover={{ textDecoration: 'none' }}>
+                    <CardLayout
+                        p='1em 1.2em'
                     >
-                        {extractLocalizedString({
-                            en: 'Contact me',
-                            fr: 'Contactez-moi'
-                        }, locale)}
-                    </Text>                    
-                </CardLayout>
-            </Link>
+                        <Text
+                            fontFamily='Raleway' fontSize={{ base: '1rem', lg: '1.2rem' }}
+                        >
+                            {extractLocalizedString({
+                                en: 'Contact me',
+                                fr: 'Contactez-moi'
+                            }, locale)}
+                        </Text>                    
+                    </CardLayout>
+                </Link>
+
+                <Link href='#contact' _hover={{ textDecoration: 'none' }}>
+                    <CardLayout
+                        p='1em 1.2em'
+                    >
+                        <Text
+                            fontFamily='Raleway' fontSize={{ base: '1rem', lg: '1.2rem' }}
+                        >
+                            {extractLocalizedString('Blog', locale)}
+                        </Text>                    
+                    </CardLayout>
+                </Link>
+
+            </HStack>
+
 
         </Flex>
 

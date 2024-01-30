@@ -1,8 +1,9 @@
-import { Box, Flex, Image, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
+import { TableOfContent } from '@components/shared/markdown/TableOfContent'
 import { Locale } from '@content'
+import { remarkAdmonition } from '@core/lib/remark'
 import { markdownOverrideTheme } from '@core/theme/markdown'
 import { ArticleData } from '@core/types/article'
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -11,10 +12,8 @@ import Link from 'next/link'
 import { AiFillHome } from 'react-icons/ai'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
-import remarkGfm from 'remark-gfm'
-import remarkMdx from 'remark-mdx'
 import remarkDirective from "remark-directive"
-import { remarkAdmonition } from '@core/lib/remark'
+import remarkGfm from 'remark-gfm'
 
 const getPaths = (locale: Locale) => {
 
@@ -28,7 +27,6 @@ const getPaths = (locale: Locale) => {
         }
     }))
 }
-
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
@@ -60,7 +58,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
         props: {
-            article
+            article,
         }
     }
 }
@@ -94,6 +92,8 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
             />}
             <link rel='icon' type='image/png' href='https://cdn-icons-png.flaticon.com/512/3500/3500995.png' />
         </Head>
+
+        <TableOfContent markdown={article.content} />
 
         <Flex
             maxW='full'
