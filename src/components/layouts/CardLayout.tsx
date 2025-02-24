@@ -10,13 +10,12 @@ type CardLayoutProps = {
 } & ChakraProps
 
 // const dampen = 100
-const defaultGlowColor = 'rgba(212, 0, 255, 0.08)'
 // Colors panel:
-// 'rgba(255, 255, 255, 0.03)', // blanc
-// 'rgba(212, 0, 255, 0.05)', // violet
-// 'rgba(0, 38, 255, 0.08)', // bleu
-// 'rgba(0, 255, 179, 0.05)', // bleu/vert
-// 'rgba(255, 247, 0, 0.04)', // jaune
+// const defaultGlowColor = 'rgba(255, 255, 255, 0.1)' // blanc
+const defaultGlowColor = 'rgba(212, 0, 255, 0.05)' // violet
+// const defaultGlowColor = 'rgba(0, 38, 255, 0.08)' // bleu
+// const defaultGlowColor = 'rgba(0, 255, 179, 0.05)' // bleu/vert
+// const defaultGlowColor = 'rgba(255, 247, 0, 0.04)' // jaune
 
 export const CardLayout: React.FC<CardLayoutProps> = ({ children, glowColor, ...rest }) => {
 

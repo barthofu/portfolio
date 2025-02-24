@@ -67,6 +67,7 @@ export const PinnedProject: React.FC<PinnedProjectProps> = ({ project, inverted 
                         maxW='100%'
                         flexWrap='wrap'
                         gap='1em'
+                        marginX='1em'
                     >
                         {project.tags.map(tag => {
 
