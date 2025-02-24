@@ -12,6 +12,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 
     const [selectedType, setSelectedType] = React.useState<Tag | null>(tags[0].id)
 
+    // sort projects by year (string)
+    projects.sort((a, b) => (b.year || '0') > (a.year || '0') ? 1 : -1)
+
     const detailedProjects = projects
         .filter(project => 
             (selectedType === null || project.tags.includes(selectedType)) 

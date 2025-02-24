@@ -10,8 +10,8 @@ export enum Type {
 export const types = [
     { id: Type.Language, label: { en: 'Language', fr: 'Langage', } },
     { id: Type.Framework, label: 'Framework' },
+    { id: Type.Devops, label: 'DevOps' },
     { id: Type.Library, label: { en: 'Library', fr: 'Librairie', } },
     { id: Type.Database, label: { en: 'Database', fr: 'Base de données', } },
-    { id: Type.Devops, label: 'DevOps' },
     { id: Type.Tool, label: { en: 'Tool', fr: 'Outil' } },
 ]
