@@ -12,7 +12,7 @@ export default function Document() {
                 
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 
-                <script defer data-domain="bartho.dev" data-api='/api/event' src="/js/script.js"></script>
+                <script defer data-domain="bartho.dev" src="https://analytics.bartho.dev/js/script.outbound-links.js"></script>
             </Head>
 
             <body style={{ overflowX: 'hidden' }}>
