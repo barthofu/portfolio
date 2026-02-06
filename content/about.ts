@@ -1,6 +1,25 @@
+const calculateAge = (
+    birthDate: { year: number; month: number; day: number },
+    now: Date = new Date(),
+): number => {
+    const nowYear = now.getUTCFullYear()
+    const nowMonth = now.getUTCMonth() + 1
+    const nowDay = now.getUTCDate()
+
+    let age = nowYear - birthDate.year
+
+    const hasHadBirthdayThisYear =
+        nowMonth > birthDate.month || (nowMonth === birthDate.month && nowDay >= birthDate.day)
+
+    if (!hasHadBirthdayThisYear) age -= 1
+    return age
+}
+
+const age = calculateAge({ year: 2002, month: 2, day: 1 })
+
 export const subtitle: LocalizedString = {
-    en: '23 years old . french . devops/cloudops . software/web developer . tech lover',
-    fr: '23 ans . français . devops . cloudops . développeur web/logiciel . passionné de tech'
+    en: `${age} years old . french . devops/cloudops . software/web developer . tech lover`,
+    fr: `${age} ans . français . devops . cloudops . développeur web/logiciel . passionné de tech`
 }
 
 export const about: LocalizedString<true> = {

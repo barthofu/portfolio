@@ -4,7 +4,6 @@ import { extractLocalizedString } from '@core/utils/functions'
 import React from 'react'
 
 import { PopBox } from '@components/shared'
-import { statuses, tags } from '@content'
 import { useLocale } from '@core/hooks/useLocale'
 import { ProjectLinks } from './ProjectLinks'
 import { ProjectTechnologies } from './ProjectTechnologies'
@@ -72,7 +71,7 @@ export const PinnedProject: React.FC<PinnedProjectProps> = ({ project, inverted 
                         {project.tags.map(tag => {
 
                             const parsedTag = tags.find(t => t.id === tag)
-                            if (!parsedTag) return null
+                            if (!parsedTag || parsedTag.id === Tag.Highlight) return null
 
                             return (
                                 <CardLayout
