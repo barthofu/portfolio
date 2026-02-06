@@ -13,7 +13,7 @@ export enum Tag {
 }
 
 export const tags = [
-    { id: Tag.Highlight, label: { en: 'Highlight', fr: 'En avant', } },
+    { id: Tag.Highlight, label: { en: 'Highlight', fr: 'Highlight', } },
     { id: Tag.School, label: { en: 'School', fr: 'Scolaire', } },
     { id: Tag.Professional, label: { en: 'Professional', fr: 'Professionnel', } },
     { id: Tag.Web, label: 'Web' },
